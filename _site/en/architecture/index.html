@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture — Frida</title>
+  <meta name="description" content="Structure and organisation of the Frida system: principles, layers, invariants and open problems.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="site-header-inner">
+
+      
+      <a href="/en/index.html" class="site-logo" aria-label="Frida — Home">
+      
+        <img src="/assets/logo.png" alt="" class="logo-mark" aria-hidden="true">
+        <span class="logo-name">Frida</span>
+      </a>
+
+      
+      <nav aria-label="Main navigation">
+        <ul class="site-nav">
+          <li><a href="/en/index.html">Home</a></li>
+          <li><a href="/en/philosophy.html">Philosophy</a></li>
+          <li><a href="/en/architecture.html" class="active">Architecture</a></li>
+          <li><a href="/en/documents.html">Documents</a></li>
+          <li><a href="https://github.com/Tofmuck" class="nav-ext" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="/en/contact.html">Contact</a></li>
+          <li class="nav-lang"><a href="/architecture.html" class="lang-other">fr</a><span class="lang-sep"> · </span><span class="lang-current">en</span></li>
+        </ul>
+      </nav>
+      
+
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="site-main">
+    <div class="wrap">
+      
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <p class="page-eyebrow">Architecture</p>
+  <h1 class="page-title">System structure</h1>
+  <p class="page-desc">Organisational principles, functional layers, invariants and tensions currently under exploration.</p>
+</div>
+
+<!-- STRUCTURAL PRINCIPLES -->
+<section class="section">
+  <p class="label">I. Principles</p>
+  <h2 class="section-title">Structural principles</h2>
+  <p>Frida's architecture rests on a set of principles that distinguish this project from standard generation systems. These principles are not implementation choices among others: they are constitutive of the project's intention.</p>
+
+  <table class="data-table" style="margin-top: 2rem;">
+    <thead>
+      <tr>
+        <th>Principle</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Separation of generation / validation</strong></td>
+        <td>Producing a response and evaluating its validity are two distinct processes. One does not subsume the other.</td>
+      </tr>
+      <tr>
+        <td><strong>Hierarchised memory</strong></td>
+        <td>Memorised traces are not equivalent. They are weighted according to their reliability, age and contextual relevance.</td>
+      </tr>
+      <tr>
+        <td><strong>Explicit uncertainty</strong></td>
+        <td>Every inference carries an estimate of its degree of certainty. This estimate is passed to the upper layer and can influence the decision to respond.</td>
+      </tr>
+      <tr>
+        <td><strong>Suspension as a valid output</strong></td>
+        <td>The system can — and must — suspend its response when the epistemic conditions are not satisfied. The absence of a response is a response.</td>
+      </tr>
+      <tr>
+        <td><strong>Revisability</strong></td>
+        <td>Past inferences can be called into question by new information. Revision leaves an explicit trace in the structured memory.</td>
+      </tr>
+      <tr>
+        <td><strong>Longitudinal coherence</strong></td>
+        <td>The system maintains coherence across exchanges over time. Contradictions with prior positions are detected and handled explicitly.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- LAYERS AND MODULES -->
+<section class="section">
+  <p class="label">II. Organisation</p>
+  <h2 class="section-title">Layers and modules</h2>
+  <p>The system is organised into three main layers, articulated by a central arbitration module. This organisation reflects the distinction between lower-level operations (memorisation, local interpretation) and higher-level operations (coherence, validation, response decision).</p>
+
+  <div class="arch-diagram">
+    <div class="arch-layer">
+      <span class="arch-layer-title">Dialogue Layer</span>
+      <span class="arch-layer-sub">interface · query formulation · synthesised response</span>
+    </div>
+    <div class="arch-arrow">↕</div>
+    <div class="arch-layer" style="border-color: var(--accent);">
+      <span class="arch-layer-title">Arbitration Module</span>
+      <span class="arch-layer-sub">coherence · validation · suspension · explicit uncertainty</span>
+    </div>
+    <div class="arch-arrow">↕</div>
+    <div class="arch-cols">
+      <div class="arch-layer">
+        <span class="arch-layer-title">Structured Memory</span>
+        <span class="arch-layer-sub">context · history · continuity · trace weighting</span>
+      </div>
+      <div class="arch-layer">
+        <span class="arch-layer-title">Interpretation</span>
+        <span class="arch-layer-sub">analysis · contextualisation · inference · revision</span>
+      </div>
+      <div class="arch-layer">
+        <span class="arch-layer-title">Evidence &amp; Traces</span>
+        <span class="arch-layer-sub">hierarchisation · validation · residual uncertainty</span>
+      </div>
+    </div>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Module</th>
+        <th>Main function</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Dialogue Layer</td>
+        <td>User interface. Reformulation, clarification of ambiguities, synthesis of the final response.</td>
+        <td><span class="tag">in progress</span></td>
+      </tr>
+      <tr>
+        <td>Arbitration Module</td>
+        <td>Evaluation of inference coherence. Decision to respond, reformulate or suspend. Explicit uncertainty.</td>
+        <td><span class="tag">design</span></td>
+      </tr>
+      <tr>
+        <td>Structured Memory</td>
+        <td>Hierarchised storage of contextual traces. Obsolescence and revision management. Reliability weighting.</td>
+        <td><span class="tag">in progress</span></td>
+      </tr>
+      <tr>
+        <td>Interpretation</td>
+        <td>Contextual analysis of inputs. Production of situated inferences. Revision based on new data.</td>
+        <td><span class="tag">design</span></td>
+      </tr>
+      <tr>
+        <td>Evidence &amp; Traces</td>
+        <td>Hierarchisation of probative elements. Management of degrees of certainty. Traceability of inference sources.</td>
+        <td><span class="tag">design</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- INVARIANTS -->
+<section class="section">
+  <p class="label">III. Invariants</p>
+  <h2 class="section-title">System invariants</h2>
+  <p>Invariants are the properties the system must maintain under all circumstances. They constitute a form of normative specification of what Frida is — and is not.</p>
+
+  <ol class="invariants">
+    <li>Every response produced carries an estimate of its degree of certainty, available to the arbitration layer.</li>
+    <li>No response is passed to the Dialogue Layer without having been evaluated by the Arbitration Module.</li>
+    <li>Suspension of response is always preferable to producing a response whose validity falls below the defined threshold.</li>
+    <li>Any revision of a prior inference leaves an explicit trace in the structured memory, with the justification for the revision.</li>
+    <li>Memorised traces are weighted: their weight can be increased (confirmation) or decreased (partial refutation, obsolescence).</li>
+    <li>Longitudinal coherence is verified before any response engaging a prior position of the system.</li>
+    <li>Uncertainty is never concealed in the fluency of the response. It is named, or the response is suspended.</li>
+    <li>The system distinguishes what it <em>knows</em> (reliable and verified trace), what it <em>infers</em> (derived from existing traces) and what it <em>supposes</em> (unverifiable extrapolation).</li>
+  </ol>
+</section>
+
+<!-- OPEN PROBLEMS -->
+<section class="section">
+  <p class="label">IV. Tensions and open questions</p>
+  <h2 class="section-title">Problems currently under exploration</h2>
+  <p>Frida does not claim to have resolved these questions. They constitute the heart of the ongoing work.</p>
+
+  <ul class="problems">
+    <li><strong>Trace granularity.</strong> At what level of granularity should traces be memorised? What is the minimal unit of a relevant trace? How to hierarchise without losing contextual richness?</li>
+    <li><strong>Suspension threshold.</strong> How to determine the threshold below which a response must be suspended? Is this threshold fixed, contextual, or domain-dependent?</li>
+    <li><strong>Handling contradictions.</strong> When two memorised traces contradict each other, how to arbitrate without deciding arbitrarily? Should the contradiction be exposed to the user or handled silently?</li>
+    <li><strong>Computational cost of rigour.</strong> The separation between generation and validation, and longitudinal coherence checking, have a cost. How to maintain these requirements at scale?</li>
+    <li><strong>Evaluating understanding.</strong> How to measure that a system <em>understands</em> rather than <em>generates</em>? What evaluation criteria are relevant and non-circular?</li>
+  </ul>
+
+  <div class="btn-row">
+    <a href="https://github.com/Tofmuck" class="btn btn-accent" target="_blank" rel="noopener">View code on GitHub ↗</a>
+    <a href="/en/documents.html" class="btn">Documentation</a>
+  </div>
+</section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <span class="footer-brand">Frida — frida-ai.fr</span>
+      
+      <ul class="footer-links">
+        <li><a href="/en/philosophy.html">Philosophy</a></li>
+        <li><a href="/en/architecture.html">Architecture</a></li>
+        <li><a href="/en/documents.html">Documents</a></li>
+        <li><a href="https://github.com/Tofmuck" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="/en/contact.html">Contact</a></li>
+      </ul>
+      
+    </div>
+  </footer>
+
+</body>
+</html>
