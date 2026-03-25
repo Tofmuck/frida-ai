@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="{{ lang | default('fr') }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ pageTitle }}</title>
+  <meta name="description" content="{{ description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="site-header-inner">
+
+      {% if lang == 'en' %}
+      <a href="/en/index.html" class="site-logo" aria-label="Frida — Home">
+      {% else %}
+      <a href="/index.html" class="site-logo" aria-label="Frida — Accueil">
+      {% endif %}
+        <img src="/assets/logo.png" alt="" class="logo-mark" aria-hidden="true">
+        <span class="logo-name">Frida</span>
+      </a>
+
+      {% if lang == 'en' %}
+      <nav aria-label="Main navigation">
+        <ul class="site-nav">
+          <li><a href="/en/index.html"{% if navActive == 'home' %} class="active"{% endif %}>Home</a></li>
+          <li><a href="/en/philosophy.html"{% if navActive == 'philosophy' %} class="active"{% endif %}>Philosophy</a></li>
+          <li><a href="/en/architecture.html"{% if navActive == 'architecture' %} class="active"{% endif %}>Architecture</a></li>
+          <li><a href="/en/documents.html"{% if navActive == 'documents' %} class="active"{% endif %}>Documents</a></li>
+          <li><a href="https://github.com/Tofmuck" class="nav-ext" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="/en/contact.html"{% if navActive == 'contact' %} class="active"{% endif %}>Contact</a></li>
+          <li class="nav-lang"><a href="{{ frUrl }}" class="lang-other">fr</a><span class="lang-sep"> · </span><span class="lang-current">en</span></li>
+        </ul>
+      </nav>
+      {% else %}
+      <nav aria-label="Navigation principale">
+        <ul class="site-nav">
+          <li><a href="/index.html"{% if navActive == 'accueil' %} class="active"{% endif %}>Accueil</a></li>
+          <li><a href="/philosophie.html"{% if navActive == 'philosophie' %} class="active"{% endif %}>Philosophie</a></li>
+          <li><a href="/architecture.html"{% if navActive == 'architecture' %} class="active"{% endif %}>Architecture</a></li>
+          <li><a href="/documents.html"{% if navActive == 'documents' %} class="active"{% endif %}>Documents</a></li>
+          <li><a href="https://github.com/Tofmuck" class="nav-ext" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="/contact.html"{% if navActive == 'contact' %} class="active"{% endif %}>Contact</a></li>
+          <li class="nav-lang"><span class="lang-current">fr</span><span class="lang-sep"> · </span><a href="{{ enUrl }}" class="lang-other">en</a></li>
+        </ul>
+      </nav>
+      {% endif %}
+
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="site-main">
+    <div class="wrap">
+      {{ content | safe }}
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <span class="footer-brand">Frida — frida-ai.fr</span>
+      {% if lang == 'en' %}
+      <ul class="footer-links">
+        <li><a href="/en/philosophy.html">Philosophy</a></li>
+        <li><a href="/en/architecture.html">Architecture</a></li>
+        <li><a href="/en/documents.html">Documents</a></li>
+        <li><a href="https://github.com/Tofmuck" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="/en/contact.html">Contact</a></li>
+      </ul>
+      {% else %}
+      <ul class="footer-links">
+        <li><a href="/philosophie.html">Philosophie</a></li>
+        <li><a href="/architecture.html">Architecture</a></li>
+        <li><a href="/documents.html">Documents</a></li>
+        <li><a href="https://github.com/Tofmuck" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      {% endif %}
+    </div>
+  </footer>
+
+</body>
+</html>

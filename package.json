@@ -1,0 +1,12 @@
+{
+  "name": "frida-ai-site",
+  "version": "1.0.0",
+  "description": "Site de recherche frida-ai.fr",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve --port=8080"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}
