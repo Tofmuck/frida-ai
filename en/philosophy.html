@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Philosophy — Frida</title>
-  <meta name="description" content="The operational philosophy of Frida: dialogue, memory, judgment, uncertainty, revision, and architectural responsibility.">
+  <meta name="description" content="Working hypotheses of Frida: dialogue, memory, documents, revision, the status of evidence, and architectural consequences.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -47,39 +47,39 @@
 <!-- PAGE HEADER -->
 <div class="page-header">
   <p class="page-eyebrow">Philosophy</p>
-  <h1 class="page-title">Operational philosophy</h1>
-  <p class="page-desc">Not a doctrine pasted onto a website, but the intellectual constraints that actually orient the code, the modules, and the documents.</p>
+  <h1 class="page-title">Working hypotheses</h1>
+  <p class="page-desc">Description of the problems treated by the project and of the architectural consequences that follow from them.</p>
 </div>
 
 <!-- I. The starting problem -->
 <section class="section">
   <p class="label">I. Point of departure</p>
-  <h2 class="section-title">From plausible text to disciplined dialogue</h2>
-  <p>Frida begins from a simple observation: contemporary models are often excellent at local continuation, but much less stable when asked to sustain a dialogue over time, recognise what has already been said, process an imposed document, revise an inference, or keep real uncertainty visible.</p>
-  <p>The problem is therefore not only whether a machine &ldquo;understands,&rdquo; but how its dialogic behaviour can be technically disciplined. This concerns context, memory, validity, revision, and responsibility for the response that is produced.</p>
-  <p>In Frida, this question is not left as metaphor. It becomes an architectural problem: which modules to separate, which contracts to write, which traces to persist, which response regimes to allow, and which failures to keep legible.</p>
+  <h2 class="section-title">What the project takes as its problem</h2>
+  <p>The project does not begin from the assumption that a language model understands in the human sense. It begins from a narrower difficulty: how to organise a dialogue system technically so that it can keep a history, process documents, revisit certain inferences, and maintain an explicit trace of its operations.</p>
+  <p>The question therefore concerns less a metaphysical attribution of understanding than the discipline of dialogic behaviour. This involves the status of context, memory, summaries, injected documents, signals of judgment, and revision procedures.</p>
+  <p>In Frida, these questions are treated as architectural questions: module separation, persistence contracts, hierarchy of textual materials, conditions for memory injection, and forms of observability.</p>
 </section>
 
 <!-- II. Critique of plausibility -->
 <section class="section">
   <p class="label">II. Fundamental critique</p>
   <h2 class="section-title">Beyond plausibility</h2>
-  <p>The probabilistic regime is not rejected on principle. It is recognised for what it is: a generative power. What becomes problematic is its implicit sovereignty, that is, the tendency to let surface plausibility stand in for judgment, memory, and sometimes even practical truth.</p>
-  <p>A persuasive response can be locally coherent and yet false, incomplete, overconfident, or detached from the actual history of the dialogue. It is precisely this gap that Frida tries to reduce, not by abolishing generation, but by placing it under constraints of context, memory, validation, and revision.</p>
-  <p>The right question is therefore not &ldquo;can we generate differently?&rdquo; but &ldquo;which intermediate layers must be instituted so that a response is not merely probable, but situated, traceable, and intellectually honest?&rdquo;</p>
+  <p>The use of a generative model is not in itself contested. What becomes problematic is allowing the local plausibility of a text to stand, by itself, for memory, validation, or judgment.</p>
+  <p>A response can be fluent and yet badly situated, insufficiently grounded, or in contradiction with previous turns. The project therefore tries to describe and construct mediations between generation and final response: memory, summaries, arbitration, validation, dialogic regime, and documentary constraints.</p>
+  <p>The problem is not to produce a different style of answer, but to determine under which conditions an utterance can be retained, revised, reformulated, or suspended.</p>
 
   <div class="themes" style="margin-top: 2rem;">
     <div class="theme">
-      <h3 class="theme-title">Plausibility is not judgment</h3>
-      <p>Textual continuity is not yet continuity of position. It needs mediations: memory, arbitration, dialogic regime control, documentation, and persistence rules.</p>
+      <h3 class="theme-title">Plausible text, uncertain position</h3>
+      <p>A text can be well formed without its position in the dialogue being sufficiently determined. Local coherence does not by itself produce usable continuity.</p>
     </div>
     <div class="theme">
-      <h3 class="theme-title">Uncertainty must remain visible</h3>
-      <p>A response is not better because it sounds more certain. Frida favours explicit limits, trace conflicts, and degraded modes over rhetorical authority.</p>
+      <h3 class="theme-title">Uncertainty must remain formulated</h3>
+      <p>When a conflict, a gap, or a degraded mode appears, it must be possible to describe it. The problem is not uncertainty itself, but its concealment.</p>
     </div>
     <div class="theme">
-      <h3 class="theme-title">Rephrase, delay, suspend</h3>
-      <p>The right behaviour is not always to answer immediately. Rephrasing a request, signalling a conflict, postponing a conclusion, or suspending are legitimate outputs.</p>
+      <h3 class="theme-title">Revision and suspension</h3>
+      <p>A valid output may consist in revising an inference, asking for clarification, signalling a conflict, or suspending the response.</p>
     </div>
   </div>
 </section>
@@ -88,27 +88,27 @@
 <section class="section">
   <p class="label">III. Memory and time</p>
   <h2 class="section-title">Memory, trace and continuity</h2>
-  <p>Dialogue becomes fragile as soon as everything is collapsed into a flat context window. Frida explicitly distinguishes turns, traces, summaries, retrieved snippets, user-injected documents, and derived writes. These statuses are not equivalent and do not carry the same weight downstream.</p>
-  <p>This distinction is not ornamental. It makes it possible to work on continuity, revision, contradiction handling, and temporal structure without turning memory into an undifferentiated heap. A trace is not a summary, a summary is not evidence, and an imposed document is not merely a recovered memory.</p>
-  <p>Interpretive continuity in Frida therefore does not name a vague feeling of coherence. It names the system's capacity to retrieve what matters, know where it came from, signal what changed, and maintain a dialogic conduct that does not evade its own revisions.</p>
+  <p>The project explicitly distinguishes several kinds of material: turns, persisted traces, summaries, retrieved snippets, injected documents, validation outputs, and operator logs. These materials do not play the same role, do not carry the same degree of reliability, and do not enter the pipeline in the same way.</p>
+  <p>This distinction is necessary in order to prevent dialogue memory from being treated as mere accumulation. A trace is not a summary. A summary is not evidence. An injected document is not a recovered memory. An execution log is not dialogue content.</p>
+  <p>The problem of continuity then consists in maintaining explicit relations among these elements, managing their temporality, and making revision possible when a later turn changes the state of the question.</p>
 </section>
 
 <!-- IV. Hermeneutics -->
 <section class="section">
   <p class="label">IV. Hermeneutics</p>
   <h2 class="section-title">Interpretation as a situated process</h2>
-  <p>Hermeneutics is not used here as a cultural label. It serves to recall that no utterance is processed without position, horizon, or local history. Hence the importance, in both runtimes, of modules that situate the turn, filter memory, bound contextual contributions, validate or redirect the response regime.</p>
-  <p>In <strong>FridaDev</strong>, this takes the form of an explicit hermeneutic branch. In <strong>Frida_V4</strong>, it takes the form of distinct modules such as <code>M6 Stimmung</code>, <code>M7 Arbiter</code>, and <code>M8 Documents</code>, which try to separate what belongs to dialogic regime control, memory decision, and documentary constraint.</p>
-  <p>Interpretation therefore does not mean &ldquo;feeling&rdquo; a text, nor attributing a soul to it. It means building situated, bounded, revisable operations explicit enough that their effects can be audited.</p>
+  <p>The term hermeneutics is used here in an operational sense. It indicates that an utterance is not processed independently of its place in the dialogue, its context of enunciation, and the memorial or documentary materials associated with it.</p>
+  <p>In <strong>FridaDev</strong>, this orientation appears as an explicit hermeneutic branch in the public pipeline. In <strong>Frida_V4</strong>, which is non-public at this time, distinct modules work on neighbouring problems, including dialogic regime, memory arbitration, and document handling.</p>
+  <p>The point is not to psychologise the system. It is to construct situated, bounded, revisable operations whose effects can be described and discussed.</p>
 </section>
 
 <!-- V. Ethics of architecture -->
 <section class="section">
   <p class="label">V. Ethics</p>
-  <h2 class="section-title">The ethics of an AI that works</h2>
-  <p>Frida's philosophy does not reduce to an ideal of truth. It also concerns the concrete conditions under which a system operates: what is logged, what is persistent, what is revisable, what remains local, what is left visible to the operator, and what is not allowed to present itself as more stable than it really is.</p>
-  <p>This ethic applies as much to produced text as to the technical layers that surround it. A response, an admin surface, a streaming contract, a transcribed audio track, an injected document, or a local agent loop all belong to the same requirement: opacity must not be converted into authority.</p>
-  <p>Frida therefore seeks less to manufacture a machine that is &ldquo;right&rdquo; than to build a machine whose supports, hesitations, revisions, and failures can be understood. That is the price of keeping scientific and software work on dialogue serious.</p>
+  <h2 class="section-title">Architectural consequences</h2>
+  <p>These hypotheses have direct architectural consequences. A dialogue system does not reduce to a model call. It involves choices of persistence, logging, hierarchy of materials, status of documents, and forms of visibility for the operator.</p>
+  <p>The project therefore gives importance to streaming contracts, canonical save procedures, inspection surfaces, and modes of revision. These are not secondary details; they condition what can actually be maintained about the behaviour of the system.</p>
+  <p>The public site must remain coherent with this requirement. It should not present as available what is not, nor attribute to the project properties that are not supported by the repositories, the documents, and the effective state of the work.</p>
 
   <div class="btn-row">
     <a href="/en/architecture.html" class="btn btn-accent">See the architecture →</a>

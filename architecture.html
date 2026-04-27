@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Architecture — Frida</title>
-  <meta name="description" content="Cartographie actuelle de Frida : dépôts, runtimes, modules, invariants et problèmes encore ouverts.">
+  <meta name="description" content="Description synthétique de l'état architectural de Frida : site public, FridaDev public, Frida_V4 non public, documents et problèmes de travail.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -47,15 +47,15 @@
 <!-- EN-TÊTE DE PAGE -->
 <div class="page-header">
   <p class="page-eyebrow">Architecture</p>
-  <h1 class="page-title">Cartographie actuelle</h1>
-  <p class="page-desc">Dépôts, runtimes, modules, invariants et tensions&nbsp;: le projet tel qu'il existe aujourd'hui, et non tel qu'il serait commode de le raconter.</p>
+  <h1 class="page-title">État architectural</h1>
+  <p class="page-desc">Description synthétique de l'état courant du projet&nbsp;: ce qui est public, ce qui ne l'est pas, et comment les éléments disponibles s'articulent.</p>
 </div>
 
 <!-- PRINCIPES STRUCTURAUX -->
 <section class="section">
   <p class="label">I. Principes</p>
   <h2 class="section-title">Principes structuraux</h2>
-  <p>Frida ne repose pas sur un seul codebase ni sur une seule surface d'usage. Son architecture s'est épaissie en deux runtimes complémentaires et un site documentaire. Les principes ci-dessous servent à maintenir une cohérence intellectuelle et technique entre ces formes.</p>
+  <p>Le projet ne se présente pas sous la forme d'un système unique entièrement public. Il faut distinguer le site public, FridaDev comme dépôt applicatif public et Frida_V4 comme travail en cours non public. Les principes ci-dessous servent à maintenir la cohérence de cette description.</p>
 
   <table class="data-table" style="margin-top: 2rem;">
     <thead>
@@ -66,28 +66,28 @@
     </thead>
     <tbody>
       <tr>
-        <td><strong>Décomposition modulaire explicite</strong></td>
-        <td>Les responsabilités sont nommées et séparées autant que possible&nbsp;: orchestration, mémoire, résumés, récupération, régime dialogique, arbitrage, documents, LLM, outils locaux.</td>
+        <td><strong>Statut public explicite</strong></td>
+        <td>Le site doit distinguer ce qui est public, ce qui ne l'est pas et ce qui n'est public que sous forme documentaire isolée.</td>
       </tr>
       <tr>
-        <td><strong>Deux runtimes, un même programme</strong></td>
-        <td><code>Frida_V4</code> et <code>FridaDev</code> n'implémentent pas exactement la même chose, mais ils travaillent le même noyau de problèmes&nbsp;: continuité dialogique, mémoire, jugement, observabilité.</td>
+        <td><strong>Statuts distincts des matériaux</strong></td>
+        <td>Une trace, un résumé, un snippet récupéré, un document injecté, un log opérateur ou un document de recherche n'ont pas le même rôle.</td>
       </tr>
       <tr>
-        <td><strong>Statuts distincts de la mémoire</strong></td>
-        <td>Une trace, un résumé, un snippet récupéré, un document imposé ou un log opérateur n'ont pas le même statut. Les confondre revient à perdre la discipline du système.</td>
+        <td><strong>Décomposition modulaire</strong></td>
+        <td>Lorsque le projet décrit un runtime, il décrit des responsabilités séparées autant que possible&nbsp;: orchestration, mémoire, résumés, récupération, validation, documents, LLM, outillage local.</td>
       </tr>
       <tr>
-        <td><strong>Fail-open et modes dégradés visibles</strong></td>
-        <td>Un module en échec ne doit pas se faire passer pour un succès silencieux. Les replis, les interruptions et les limites runtime doivent rester explicites.</td>
+        <td><strong>Persistance et streaming décrits</strong></td>
+        <td>Les conditions de persistance canonique et les contrats de streaming font partie de la description du système.</td>
       </tr>
       <tr>
-        <td><strong>Observabilité first</strong></td>
-        <td>Les journaux, les audits, les panneaux d'administration et les états de persistance font partie de l'architecture, pas d'une surcouche facultative.</td>
+        <td><strong>Observabilité</strong></td>
+        <td>Les journaux, audits, surfaces d'administration et états de persistance doivent être décrits comme des éléments de l'architecture.</td>
       </tr>
       <tr>
-        <td><strong>Documentation alignée sur le code</strong></td>
-        <td>Le site public et les documents ne doivent pas annoncer un système fictif. Ils doivent refléter le current-state, ses preuves et ses manques.</td>
+        <td><strong>Évaluation avant affirmation</strong></td>
+        <td>Le site ne doit pas attribuer à un module des propriétés qui ne seraient pas soutenues par le code, les documents ou les évaluations disponibles.</td>
       </tr>
     </tbody>
   </table>
@@ -97,31 +97,31 @@
 <section class="section">
   <p class="label">II. Organisation</p>
   <h2 class="section-title">Couches et modules</h2>
-  <p>Frida n'est plus un schéma unique posé sur un tableau. Le projet existe aujourd'hui sous forme d'un runtime natif, d'un runtime web et d'un site public. L'unité ne tient pas à une implémentation identique, mais à la persistance de certaines questions et de certains contrats.</p>
+  <p>Les éléments actuellement mentionnés sur le site peuvent être ordonnés de la manière suivante&nbsp;: un site public de documentation, un dépôt applicatif public, un dépôt applicatif non public et quelques documents publics portant sur des modules ou des problèmes de travail.</p>
 
   <div class="arch-diagram">
     <div class="arch-layer">
-      <span class="arch-layer-title">Surfaces utilisateur</span>
-      <span class="arch-layer-sub">chat natif · chat web · documentation publique</span>
+      <span class="arch-layer-title">Site public</span>
+      <span class="arch-layer-sub">pages descriptives · documents publics · contact</span>
     </div>
     <div class="arch-arrow">↕</div>
     <div class="arch-layer" style="border-color: var(--accent);">
-      <span class="arch-layer-title">Orchestration, jugement, garde-fous</span>
-      <span class="arch-layer-sub">routing · mémoire · régime dialogique · streaming · observabilité</span>
+      <span class="arch-layer-title">Problèmes communs</span>
+      <span class="arch-layer-sub">dialogue · mémoire · documents · validation · observabilité</span>
     </div>
     <div class="arch-arrow">↕</div>
     <div class="arch-cols">
       <div class="arch-layer">
-        <span class="arch-layer-title">Frida_V4</span>
-        <span class="arch-layer-sub">Swift · modules M0-M9 · agentique locale · Whisper · TTS</span>
-      </div>
-      <div class="arch-layer">
         <span class="arch-layer-title">FridaDev</span>
-        <span class="arch-layer-sub">Python/Flask · mémoire · branche herméneutique · streaming · admin</span>
+        <span class="arch-layer-sub">public · Python/Flask · mémoire · streaming · admin</span>
       </div>
       <div class="arch-layer">
-        <span class="arch-layer-title">frida-ai</span>
-        <span class="arch-layer-sub">site bilingue · documents publics · article M6 · index des références</span>
+        <span class="arch-layer-title">Frida_V4</span>
+        <span class="arch-layer-sub">non public · Swift/macOS · modules · voix · documents</span>
+      </div>
+      <div class="arch-layer">
+        <span class="arch-layer-title">Documents publics</span>
+        <span class="arch-layer-sub">audit · pipeline · contrats · papier M6</span>
       </div>
     </div>
   </div>
@@ -136,28 +136,28 @@
     </thead>
     <tbody>
       <tr>
-        <td>Frida_V4</td>
-        <td>Runtime natif macOS en Swift. Décomposition modulaire <code>M0</code> à <code>M9</code>, boucle agentique locale, intégrations Whisper, documents et TTS, forte densité de tests.</td>
+        <td>FridaDev</td>
+        <td>Dépôt public. Runtime web en Python/Flask, chat navigateur, mémoire, branche herméneutique, streaming, persistance canonique et surfaces d'administration.</td>
         <td><span class="tag">actif</span></td>
       </tr>
       <tr>
-        <td>FridaDev</td>
-        <td>Runtime web Python/Flask. Pipeline chat avec session, mémoire, enrichissement summaries, branche herméneutique, contrat de streaming public, persistance canonique et surfaces admin.</td>
-        <td><span class="tag">actif</span></td>
+        <td>Frida_V4</td>
+        <td>Travail en cours non public. Runtime natif macOS en Swift, organisé par modules, avec mémoire, documents, voix, TTS et outillage local.</td>
+        <td><span class="tag">non public</span></td>
       </tr>
       <tr>
         <td>frida-ai</td>
-        <td>Site statique bilingue. Rôle actuel&nbsp;: exposer l'état réel du projet, indexer les documents publics et fournir un point d'entrée lisible vers les dépôts et les papiers.</td>
+        <td>Site public bilingue. Fonction actuelle&nbsp;: description du projet, index des documents publics, distinction des statuts de disponibilité.</td>
         <td><span class="tag">en ligne</span></td>
       </tr>
       <tr>
         <td>M6 Stimmung</td>
-        <td>Module de régime dialogique borné par preuves. Il ne lit pas une humeur au sens psychologique&nbsp;: il travaille la stabilité et la discipline du tour.</td>
-        <td><span class="tag">actif</span></td>
+        <td>Module de travail associé à Frida_V4. Le papier M6 est public sur ce site; le code et le dépôt de rattachement ne le sont pas à ce jour.</td>
+        <td><span class="tag">papier public</span></td>
       </tr>
       <tr>
-        <td>Documentation d'exploitation</td>
-        <td>Audits current-state, cartographies runtime, politiques de données, contrats de streaming, traces de migration et fichiers TODO clos ou actifs.</td>
+        <td>Documents publics</td>
+        <td>Audits, cartographies runtime, contrats de streaming, références d'exploitation et article de travail.</td>
         <td><span class="tag">actif</span></td>
       </tr>
     </tbody>
@@ -168,17 +168,17 @@
 <section class="section">
   <p class="label">III. Invariants</p>
   <h2 class="section-title">Invariants du système</h2>
-  <p>Les invariants ci-dessous décrivent moins un idéal abstrait qu'une ligne de conduite commune aux différents dépôts.</p>
+  <p>Les invariants suivants servent ici à décrire la manière dont le site doit parler du projet.</p>
 
   <ol class="invariants">
-    <li>La documentation publique doit rester alignée sur l'état réel du code, des tests et des audits.</li>
-    <li>L'orchestrateur doit rester plus léger que les modules sémantiques qu'il relie&nbsp;: il route, il assemble, il ne doit pas absorber tout le sens du système.</li>
-    <li>Trace, résumé, snippet récupéré, document injecté et log opérateur conservent des statuts distincts.</li>
-    <li>Un signal dialogique ou herméneutique n'est jamais une preuve en soi. Il oriente un régime de traitement, il ne remplace pas une base factuelle.</li>
-    <li>La persistance canonique et les contrats de streaming comptent autant que l'appel modèle&nbsp;: sans eux, le dialogue n'a pas de mémoire fiable.</li>
-    <li>Les capacités locales ou agentiques doivent rester bornées par des profils d'exécution, des journaux et des garde-fous explicites.</li>
-    <li>Les deux runtimes peuvent diverger techniquement, mais ils doivent pouvoir être décrits dans un vocabulaire conceptuel compatible.</li>
-    <li>L'évaluation d'un module ne peut pas se limiter à la qualité apparente de la sortie&nbsp;: il faut aussi regarder les refus, les révisions, les interruptions et les modes dégradés.</li>
+    <li>Le site distingue systématiquement ce qui est public, ce qui ne l'est pas et ce qui n'est public que sous forme documentaire.</li>
+    <li>Le site ne présente pas comme accessible un dépôt ou un module qui ne l'est pas.</li>
+    <li>Trace, résumé, document injecté, snippet récupéré, signal de jugement et log d'exécution ne sont pas confondus dans la description.</li>
+    <li>Un signal dialogique ou herméneutique n'est pas présenté comme une preuve en soi.</li>
+    <li>Les contrats de persistance et de streaming sont traités comme des éléments d'architecture à part entière.</li>
+    <li>Les surfaces d'observabilité et d'administration sont décrites lorsqu'elles existent effectivement dans le dépôt public.</li>
+    <li>Le site n'attribue pas au projet une unité logicielle fictive alors que ses éléments ont des statuts différents.</li>
+    <li>Les affirmations fortes sur un module doivent pouvoir être rapportées à un document, un dépôt ou une évaluation disponible.</li>
   </ol>
 </section>
 
@@ -186,19 +186,19 @@
 <section class="section">
   <p class="label">IV. Tensions et questions ouvertes</p>
   <h2 class="section-title">Problèmes en cours d'exploration</h2>
-  <p>Le projet est actif précisément parce que ces questions ne sont pas closes.</p>
+  <p>Les questions suivantes restent ouvertes dans le projet.</p>
 
   <ul class="problems">
-    <li><strong>Évaluation du régime dialogique.</strong> Comment mesurer l'effet réel d'un module comme <code>M6</code> sur la cohérence, la non-surinterprétation ou la stabilité de la réponse&nbsp;?</li>
-    <li><strong>Convergence des runtimes.</strong> Jusqu'où <code>Frida_V4</code> et <code>FridaDev</code> doivent-ils converger sans être artificiellement forcés dans un moule unique&nbsp;?</li>
-    <li><strong>Mémoire et documents.</strong> Comment articuler récupération mémoire, résumés et documents imposés sans brouiller leur hiérarchie ni perdre la lisibilité opérateur&nbsp;?</li>
-    <li><strong>Voix, outils locaux, sécurité.</strong> Comment enrichir les capacités agentiques et multimodales sans défaire les exigences de contrôle, d'audit et de moindre surprise&nbsp;?</li>
-    <li><strong>Publication scientifique honnête.</strong> Comment transformer certains modules en articles publiables sans surpromettre les résultats ni aplatir les limites actuelles du code&nbsp;?</li>
+    <li><strong>Passage entre dépôt public et travail non public.</strong> Comment décrire les continuités entre FridaDev et Frida_V4 sans laisser entendre une disponibilité publique identique&nbsp;?</li>
+    <li><strong>Évaluation de M6.</strong> Comment mesurer l'effet d'un module de régime dialogique sur la cohérence, la révision et la non-surinterprétation&nbsp;?</li>
+    <li><strong>Mémoire et documents.</strong> Comment articuler mémoire, résumés et documents injectés sans confusion de statut&nbsp;?</li>
+    <li><strong>Voix, outils locaux, sécurité.</strong> Comment décrire et évaluer les capacités non publiques liées à la voix ou à l'outillage local lorsqu'elles ne sont pas encore ouvertes&nbsp;?</li>
+    <li><strong>Publication.</strong> Comment rendre public un article ou un document sur un module dont le dépôt d'origine n'est pas encore ouvert&nbsp;?</li>
   </ul>
 
   <div class="btn-row">
-    <a href="https://github.com/Tofmuck/Frida_V4" class="btn btn-accent" target="_blank" rel="noopener">Voir Frida_V4 ↗</a>
-    <a href="https://github.com/Tofmuck/FridaDev" class="btn" target="_blank" rel="noopener">Voir FridaDev ↗</a>
+    <a href="https://github.com/Tofmuck/FridaDev" class="btn btn-accent" target="_blank" rel="noopener">Voir FridaDev ↗</a>
+    <a href="/documents.html" class="btn">Documents</a>
   </div>
 </section>
 

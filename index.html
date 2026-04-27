@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frida — Runtimes et recherche en IA dialogique</title>
-  <meta name="description" content="Frida est une plateforme de recherche indépendante en IA dialogique : un runtime natif macOS, un runtime web Python et un site documentaire bilingue.">
+  <title>Frida — Projet de recherche</title>
+  <meta name="description" content="Site de documentation du projet Frida. État public de FridaDev, travaux en cours non publics autour de Frida_V4, documents et article M6.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -46,20 +46,20 @@
       
 <!-- HERO -->
 <section class="hero">
-  <p class="hero-eyebrow">Plateforme de recherche indépendante</p>
+  <p class="hero-eyebrow">Projet de recherche</p>
   <h1 class="hero-title">Frida</h1>
-  <p class="hero-desc">Un projet bilingue, deux runtimes, un site documentaire&nbsp;: Frida explore une IA de dialogue plus mémorielle, plus située et plus responsable.</p>
+  <p class="hero-desc">Ce site décrit l'état public de FridaDev et signale certains travaux en cours autour de Frida.</p>
 </section>
 
 <!-- LE PROJET -->
 <section class="section">
   <p class="label">Le projet</p>
-  <h2 class="section-title">Un projet, deux dépôts applicatifs, un dépôt de site</h2>
-  <p class="lede">Frida s'organise aujourd'hui autour de deux dépôts applicatifs publics et d'un dépôt de site. <strong>Frida_V4</strong> porte un runtime natif macOS en Swift, modulaire, orienté dialogue, mémoire, documents, voix et orchestration locale. <strong>FridaDev</strong> porte un runtime web Python/Flask avec chat navigateur, mémoire, branche herméneutique, contrat de streaming et surfaces d'observabilité. <strong>frida-ai</strong> est le dépôt du site public bilingue qui documente ce travail et ses textes de référence.</p>
-  <p>Le projet n'est donc plus seulement une intuition théorique. C'est un programme logiciel réel, composé de contrats, de modules, de tests, de documents d'architecture et de surfaces opérateur. Ce qui s'y cherche n'est pas une simple amélioration de la fluidité d'un assistant, mais une manière plus disciplinée de conduire le dialogue avec un LLM&nbsp;: mieux situer les tours, mieux borner la mémoire, mieux expliciter l'incertitude, mieux assumer les modes dégradés.</p>
-  <p>La question philosophique demeure, mais elle est désormais traitée comme un problème d'ingénierie. Comment organiser la continuité dans le temps&nbsp;? Comment distinguer trace, résumé, snippet récupéré et document injecté&nbsp;? Comment faire qu'un signal dialogique ou herméneutique influence le régime de réponse sans se substituer à la preuve&nbsp;? Comment garder le système lisible pour l'opérateur&nbsp;?</p>
-  <p>Frida n'annonce pas avoir résolu la compréhension machine. Il construit des chemins concrets pour la travailler&nbsp;: mémoire structurée, arbitrage, régime dialogique, injection documentaire, outils locaux, transcription vocale, synthèse vocale et protocoles de persistance ou de streaming.</p>
-  <p><em>Frida est moins une promesse abstraite qu'une architecture de recherche en activité, tenue ensemble par le code, la documentation et la reprise critique.</em></p>
+  <h2 class="section-title">État du projet</h2>
+  <p class="lede">Frida est un projet de recherche sur l'architecture des systèmes de dialogue avec mémoire, documents, mécanismes de validation et procédures de révision.</p>
+  <p>À ce jour, <strong>FridaDev</strong> est le seul dépôt applicatif public. Il s'agit d'un runtime web en Python/Flask avec interface navigateur, mémoire, branche herméneutique, contrat de streaming public et surfaces d'administration ou d'observabilité.</p>
+  <p><strong>Frida_V4</strong> est un travail en cours, non encore public. Il s'agit d'un runtime natif macOS en Swift, structuré par modules. Le site peut en mentionner certaines lignes de travail, mais le dépôt lui-même n'est pas actuellement disponible publiquement.</p>
+  <p>Le présent site, <strong>frida-ai</strong>, a une fonction documentaire. Il sert à décrire l'état du travail, à rassembler des documents publics et à distinguer ce qui est disponible de ce qui ne l'est pas.</p>
+  <p>Les problèmes traités ici concernent notamment la continuité du dialogue, l'organisation de la mémoire, le traitement des documents injectés, la révision des inférences, le statut des signaux herméneutiques ou dialogiques et les conditions de validité d'une réponse.</p>
 </section>
 
 <!-- AXES DE RECHERCHE -->
@@ -68,23 +68,23 @@
   <div class="axes-grid">
     <div class="axis-card">
       <p class="axis-num">01</p>
-      <h3 class="axis-title">Runtime natif modulaire</h3>
-      <p class="axis-text">Décomposer le dialogue en modules nommés et testables&nbsp;: orchestration, présent, mémoire, résumés, RAG, régime dialogique, arbitrage, documents, LLM et boucle agentique locale.</p>
+      <h3 class="axis-title">FridaDev</h3>
+      <p class="axis-text">Dépôt public. Runtime web en Python/Flask, mémoire, branche herméneutique, streaming, surfaces d'administration et documentation d'exploitation.</p>
     </div>
     <div class="axis-card">
       <p class="axis-num">02</p>
-      <h3 class="axis-title">Runtime web et contrat de conversation</h3>
-      <p class="axis-text">Maintenir un pipeline web robuste&nbsp;: session, mémoire, branche herméneutique, streaming public, réhydratation frontend, admin mémoire et observabilité.</p>
+      <h3 class="axis-title">Frida_V4</h3>
+      <p class="axis-text">Travail en cours non public. Runtime natif macOS en Swift, organisé par modules, avec mémoire, documents, voix, TTS et outillage local.</p>
     </div>
     <div class="axis-card">
       <p class="axis-num">03</p>
-      <h3 class="axis-title">Mémoire, arbitrage, régime dialogique</h3>
-      <p class="axis-text">Travailler la continuité, la sélection des traces, le bornage des preuves et la conduite du dialogue sans confondre style, jugement et vérité.</p>
+      <h3 class="axis-title">Problèmes de recherche</h3>
+      <p class="axis-text">Mémoire, résumés, documents, arbitrage, régime dialogique, persistance, révision et statut des preuves dans le traitement d'un tour de dialogue.</p>
     </div>
     <div class="axis-card">
       <p class="axis-num">04</p>
-      <h3 class="axis-title">Voix, documents et observabilité</h3>
-      <p class="axis-text">Intégrer Whisper, TTS, documents imposés et journaux opérateur dans un même programme de recherche, sans les laisser dériver en fonctionnalités isolées.</p>
+      <h3 class="axis-title">Documents publics</h3>
+      <p class="axis-text">Audits, cartographies, contrats de streaming, documentation d'exploitation et un article de travail sur le module M6.</p>
     </div>
   </div>
 </section>
@@ -92,39 +92,35 @@
 <!-- ARCHITECTURE — APERÇU -->
 <section class="section">
   <p class="label">Architecture — aperçu</p>
-  <h2 class="section-title">Une architecture déjà distribuée entre plusieurs formes</h2>
-  <p>Le coeur de Frida n'est pas une page manifeste, mais un ensemble de chaînes runtime effectives. Dans <strong>Frida_V4</strong>, la trajectoire passe de l'orchestrateur <code>M0</code> aux modules mémoire, RAG, <code>M6 Stimmung</code>, <code>M7 Arbiter</code>, <code>M8 Documents</code>, <code>M9 LLM</code>, jusqu'à la boucle agentique locale et aux intégrations Whisper/TTS. Dans <strong>FridaDev</strong>, le pipeline articule session, base système augmentée, branche mémoire, branche herméneutique, contrat de streaming, persistance canonique et surfaces d'administration.</p>
-  <p>Le site public a désormais pour fonction de refléter cet état réel&nbsp;: non pas un système achevé, mais une plateforme de recherche modulaire, observable, documentée, et suffisamment concrète pour produire des audits, des articles, des évaluations et des hypothèses techniquement situées.</p>
+  <h2 class="section-title">Ce que décrit la page Architecture</h2>
+  <p>La page Architecture décrit l'état courant du projet en distinguant trois niveaux&nbsp;: le site public, FridaDev comme dépôt applicatif public, et Frida_V4 comme travail en cours non public. Elle ne présente pas un système unique disponible dans son ensemble.</p>
+  <p>Elle précise également le statut des modules ou documents mentionnés, afin d'éviter toute confusion entre ce qui relève d'un dépôt accessible, d'un document public isolé ou d'un travail encore fermé.</p>
   <div class="btn-row">
-    <a href="/architecture.html" class="btn btn-accent">Voir l'architecture actuelle</a>
+    <a href="/architecture.html" class="btn btn-accent">Voir l'architecture</a>
     <a href="/documents.html" class="btn">Consulter les documents</a>
   </div>
 </section>
 
 <!-- PARTICIPER -->
 <section class="section">
-  <p class="label">Participer</p>
-  <h2 class="section-title">Une documentation publique alignée sur le code</h2>
-  <p>Le site expose désormais des références réelles&nbsp;: dépôts, audits, cartographies, spécifications et un premier papier de travail sur <code>M6</code>. L'objectif n'est pas d'habiller le projet, mais de rendre visible ce qui existe, ce qui fonctionne, ce qui reste expérimental et ce qui demande encore une élaboration théorique ou technique.</p>
+  <p class="label">Disponibilité</p>
+  <h2 class="section-title">Ce que le site met à disposition</h2>
+  <p>Le site ne remplace pas les dépôts. Il donne accès à la documentation publique, à certains documents de travail rendus publics et à une description synthétique de l'état du projet.</p>
 
   <div class="participate">
-    <p class="participate-title">Contributions utiles</p>
-    <p>Les contributions les plus pertinentes sont celles qui améliorent la précision du projet&nbsp;: revue d'architecture, critique de formulation, aide à l'évaluation, clarification documentaire, relecture du papier <code>M6</code>, ou travail ciblé sur un module concret.</p>
-    <p>Des profils venant d'horizons complémentaires sont particulièrement utiles&nbsp;:</p>
+    <p class="participate-title">Statut des éléments mentionnés</p>
+    <p>Les statuts suivants sont distingués sur le site :</p>
     <div class="profiles">
-      <span class="tag">Swift / macOS</span>
-      <span class="tag">Python / Flask</span>
-      <span class="tag">Mémoire &amp; RAG</span>
-      <span class="tag">Orchestration LLM</span>
-      <span class="tag">Évaluation</span>
-      <span class="tag">Philosophie du langage</span>
-      <span class="tag">Documentation technique</span>
+      <span class="tag">FridaDev&nbsp;: public</span>
+      <span class="tag">frida-ai&nbsp;: public</span>
+      <span class="tag">Frida_V4&nbsp;: non public</span>
+      <span class="tag">Papier M6&nbsp;: public</span>
     </div>
   </div>
 
   <div class="btn-row">
-    <a href="https://github.com/Tofmuck" class="btn btn-accent" target="_blank" rel="noopener">Voir les dépôts GitHub ↗</a>
-    <a href="/contact.html" class="btn">Prendre contact</a>
+    <a href="https://github.com/Tofmuck/FridaDev" class="btn btn-accent" target="_blank" rel="noopener">Voir FridaDev ↗</a>
+    <a href="/contact.html" class="btn">Contact</a>
   </div>
 </section>
 

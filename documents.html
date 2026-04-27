@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Documents — Frida</title>
-  <meta name="description" content="Articles, audits, cartographies et références publiques issus des dépôts Frida_V4, FridaDev et frida-ai.">
+  <meta name="description" content="Documents publics du projet : article M6, références FridaDev, documents du site et mention de travaux non publics lorsqu'ils sont explicitement signalés comme tels.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -48,40 +48,36 @@
 <div class="page-header">
   <p class="page-eyebrow">Documents</p>
   <h1 class="page-title">Documents publics</h1>
-  <p class="page-desc">Articles, audits, cartographies, contrats et références techniques issus des deux dépôts applicatifs et du dépôt du site.</p>
+  <p class="page-desc">Cette page indexe uniquement des documents effectivement accessibles publiquement à la date de rédaction.</p>
 </div>
 
 <!-- NOTE D'INTRODUCTION -->
 <section class="section">
-  <p>Cette page indexe désormais des documents réels du projet. Elle suit l'état courant de <code>Frida_V4</code>, <code>FridaDev</code> et <code>frida-ai</code>, sans inventaire fictif ni promesse d'exhaustivité hors code.</p>
-  <p>Les liens pointent soit vers des fichiers publics sur GitHub, soit vers des documents hébergés ici. Le papier sur <code>M6</code> est disponible en PDF directement sur ce site.</p>
+  <p>Lorsqu'un travail est mentionné ici sans être public sous forme de dépôt, son statut est indiqué explicitement. Les liens GitHub présents sur cette page pointent uniquement vers des ressources publiques.</p>
+  <p>Le papier sur <code>M6</code> est hébergé directement sur ce site. Les autres références renvoient à des documents publics de <code>FridaDev</code> ou du dépôt <code>frida-ai</code>.</p>
 </section>
 
 <section class="section">
 
   <!-- ARTICLE -->
   <div class="doc-category">
-    <p class="doc-category-title">Article et papier de travail</p>
+    <p class="doc-category-title">Article hébergé sur ce site</p>
     <ul class="doc-list">
       <li class="doc-item">
         <span class="doc-name"><a href="/assets/docs/M6-paper-acm-v0.pdf">M6: An Evidence-Bounded Dialogic Regime Controller for Memory-Augmented Conversational Retrieval</a></span>
         <span class="doc-meta"><span class="tag tag-accent">pdf</span></span>
       </li>
       <li class="doc-item">
-        <span class="doc-name">Version de travail académique du module <code>M6 Stimmung</code>, rédigée pour une trajectoire de publication en IR/LLM.</span>
-        <span class="doc-meta"><span class="tag">draft</span></span>
+        <span class="doc-name">Papier de travail consacré au module <code>M6</code>. Le papier est public. Le dépôt d'origine du module, <code>Frida_V4</code>, ne l'est pas à ce jour.</span>
+        <span class="doc-meta"><span class="tag">document public</span></span>
       </li>
     </ul>
   </div>
 
-  <!-- ARCHITECTURE -->
+  <!-- FRIDADEV -->
   <div class="doc-category">
-    <p class="doc-category-title">Architecture et current-state</p>
+    <p class="doc-category-title">Références publiques FridaDev</p>
     <ul class="doc-list">
-      <li class="doc-item">
-        <span class="doc-name"><a href="https://github.com/Tofmuck/Frida_V4/blob/main/Frida_V4/Docs/Plan1.md" target="_blank" rel="noopener">Frida_V4 — Architecture opérationnelle (plan figé, version 0)</a></span>
-        <span class="doc-meta"><span class="tag tag-accent">GitHub</span></span>
-      </li>
       <li class="doc-item">
         <span class="doc-name"><a href="https://github.com/Tofmuck/FridaDev/blob/main/app/docs/states/architecture/fridadev-current-runtime-pipeline.md" target="_blank" rel="noopener">FridaDev Current Runtime Pipeline</a></span>
         <span class="doc-meta"><span class="tag tag-accent">GitHub</span></span>
@@ -90,19 +86,8 @@
         <span class="doc-name"><a href="https://github.com/Tofmuck/FridaDev/blob/main/app/docs/todo-done/audits/fridadev_repo_audit.md" target="_blank" rel="noopener">FridaDev Repo Audit</a></span>
         <span class="doc-meta"><span class="tag tag-accent">GitHub</span></span>
       </li>
-    </ul>
-  </div>
-
-  <!-- MODULES -->
-  <div class="doc-category">
-    <p class="doc-category-title">Modules, audits et doctrine</p>
-    <ul class="doc-list">
       <li class="doc-item">
-        <span class="doc-name"><a href="https://github.com/Tofmuck/Frida_V4/blob/main/Frida_V4/Docs/M6_Stimmung_Release_Dossier.md" target="_blank" rel="noopener">M6 Stimmung Release Dossier</a></span>
-        <span class="doc-meta"><span class="tag tag-accent">GitHub</span></span>
-      </li>
-      <li class="doc-item">
-        <span class="doc-name"><a href="https://github.com/Tofmuck/Frida_V4/blob/main/Frida_V4/Docs/Agentic_Frida_Audit.md" target="_blank" rel="noopener">FRIDA V4 — Audit implementation agentique</a></span>
+        <span class="doc-name"><a href="https://github.com/Tofmuck/FridaDev/blob/main/app/docs/states/specs/streaming-protocol.md" target="_blank" rel="noopener">Streaming Protocol</a></span>
         <span class="doc-meta"><span class="tag tag-accent">GitHub</span></span>
       </li>
       <li class="doc-item">
@@ -110,27 +95,35 @@
         <span class="doc-meta"><span class="tag tag-accent">GitHub</span></span>
       </li>
       <li class="doc-item">
-        <span class="doc-name"><a href="https://github.com/Tofmuck/FridaDev/blob/main/app/docs/states/specs/streaming-protocol.md" target="_blank" rel="noopener">Streaming Protocol</a></span>
+        <span class="doc-name"><a href="https://github.com/Tofmuck/FridaDev/blob/main/app/docs/states/architecture/memory-rag-current-pipeline-cartography.md" target="_blank" rel="noopener">Memory-RAG Current Pipeline Cartography</a></span>
         <span class="doc-meta"><span class="tag tag-accent">GitHub</span></span>
       </li>
-    </ul>
-  </div>
-
-  <!-- MEMORY AND EVALUATION -->
-  <div class="doc-category">
-    <p class="doc-category-title">Mémoire, RAG et évaluation</p>
-    <ul class="doc-list">
       <li class="doc-item">
-        <span class="doc-name"><a href="https://github.com/Tofmuck/FridaDev/blob/main/app/docs/states/architecture/memory-rag-current-pipeline-cartography.md" target="_blank" rel="noopener">Memory-RAG Current Pipeline Cartography</a></span>
+        <span class="doc-name"><a href="https://github.com/Tofmuck/FridaDev/blob/main/app/docs/states/specs/memory-admin-surface-contract.md" target="_blank" rel="noopener">Memory Admin Surface Contract</a></span>
         <span class="doc-meta"><span class="tag tag-accent">GitHub</span></span>
       </li>
       <li class="doc-item">
         <span class="doc-name"><a href="https://github.com/Tofmuck/FridaDev/blob/main/app/docs/states/baselines/memory-rag-relevance-baseline-2026-04-10.md" target="_blank" rel="noopener">Memory-RAG Relevance Baseline (2026-04-10)</a></span>
         <span class="doc-meta"><span class="tag tag-accent">GitHub</span></span>
       </li>
+    </ul>
+  </div>
+
+  <!-- NON PUBLIC -->
+  <div class="doc-category">
+    <p class="doc-category-title">Travaux mentionnés mais non publics</p>
+    <ul class="doc-list">
       <li class="doc-item">
-        <span class="doc-name"><a href="https://github.com/Tofmuck/FridaDev/blob/main/app/docs/states/specs/memory-admin-surface-contract.md" target="_blank" rel="noopener">Memory Admin Surface Contract</a></span>
-        <span class="doc-meta"><span class="tag tag-accent">GitHub</span></span>
+        <span class="doc-name">Frida_V4 — runtime natif macOS en Swift, en cours de développement, non public à ce jour.</span>
+        <span class="doc-meta"><span class="tag">non public</span></span>
+      </li>
+      <li class="doc-item">
+        <span class="doc-name">Modules de Frida_V4, dont <code>M6</code>, <code>M7</code> ou <code>M8</code> — mentionnés sur le site lorsqu'un document public les concerne.</span>
+        <span class="doc-meta"><span class="tag">non public</span></span>
+      </li>
+      <li class="doc-item">
+        <span class="doc-name">Le papier M6 ne vaut pas ouverture publique du dépôt Frida_V4. Il s'agit d'un document rendu public séparément.</span>
+        <span class="doc-meta"><span class="tag">statut distinct</span></span>
       </li>
     </ul>
   </div>
@@ -140,16 +133,12 @@
     <p class="doc-category-title">Dépôts</p>
     <ul class="doc-list">
       <li class="doc-item">
-        <span class="doc-name"><a href="https://github.com/Tofmuck/Frida_V4" target="_blank" rel="noopener">Frida_V4</a></span>
-        <span class="doc-meta"><span class="tag tag-accent">repo</span></span>
-      </li>
-      <li class="doc-item">
         <span class="doc-name"><a href="https://github.com/Tofmuck/FridaDev" target="_blank" rel="noopener">FridaDev</a></span>
-        <span class="doc-meta"><span class="tag tag-accent">repo</span></span>
+        <span class="doc-meta"><span class="tag tag-accent">public</span></span>
       </li>
       <li class="doc-item">
         <span class="doc-name"><a href="https://github.com/Tofmuck/frida-ai" target="_blank" rel="noopener">frida-ai</a></span>
-        <span class="doc-meta"><span class="tag tag-accent">repo</span></span>
+        <span class="doc-meta"><span class="tag tag-accent">public</span></span>
       </li>
     </ul>
   </div>
@@ -158,10 +147,10 @@
 
 <!-- NOTE DE BAS DE PAGE -->
 <section class="section">
-  <p class="text-muted text-sm">Cette page sera mise à jour au rythme des dépôts. Certains documents sont stables, d'autres sont des audits ou des drafts. Le principe reste simple&nbsp;: lier des références réelles, sourcées, et situées dans le current-state du projet.</p>
+  <p class="text-muted text-sm">Les liens GitHub ci-dessus pointent uniquement vers des ressources publiques. Lorsqu'un travail non public est mentionné, son statut est indiqué dans le texte de la page.</p>
   <div class="btn-row">
     <a href="/assets/docs/M6-paper-acm-v0.pdf" class="btn btn-accent">Ouvrir le papier M6</a>
-    <a href="https://github.com/Tofmuck" class="btn" target="_blank" rel="noopener">Voir GitHub ↗</a>
+    <a href="https://github.com/Tofmuck/FridaDev" class="btn" target="_blank" rel="noopener">Voir FridaDev ↗</a>
   </div>
 </section>
 
