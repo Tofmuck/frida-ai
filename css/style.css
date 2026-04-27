@@ -53,20 +53,10 @@ p {
   margin-bottom: 1.25rem;
 }
 
-p strong,
-p b,
-li strong,
-li b,
-td strong,
-td b,
-.doc-name strong,
-.doc-name b,
-.problems strong,
-.problems b,
-.invariants strong,
-.invariants b {
-  font-weight: inherit;
-  font-style: inherit;
+body strong,
+body b {
+  font-weight: 400 !important;
+  font-style: normal !important;
   color: var(--text);
 }
 
@@ -75,8 +65,8 @@ p:last-child {
 }
 
 code {
-  font-family: var(--font-sans);
-  font-size: 0.9em;
+  font-family: inherit;
+  font-size: 1em;
   font-weight: inherit;
   font-style: inherit;
   background: transparent;
