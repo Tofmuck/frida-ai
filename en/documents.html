@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Documents — Frida</title>
-  <meta name="description" content="Evolving documentation of the Frida project: working notes, structural documents, hypotheses, tables and experiments.">
+  <meta name="description" content="Papers, audits, cartographies, and public references drawn from the Frida_V4, FridaDev, and frida-ai repositories.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -47,133 +47,109 @@
 <!-- PAGE HEADER -->
 <div class="page-header">
   <p class="page-eyebrow">Documents</p>
-  <h1 class="page-title">Project documentation</h1>
-  <p class="page-desc">Working notes, structural documents, hypotheses and tables. Living documentation, not a definitive state.</p>
+  <h1 class="page-title">Public documents</h1>
+  <p class="page-desc">Papers, audits, cartographies, contracts, and technical references drawn from the two application repositories and the site repository.</p>
 </div>
 
 <!-- INTRODUCTION -->
 <section class="section">
-  <p>This page indexes the public documentation of the project. It is evolving: documents are added, revised, sometimes withdrawn. The order reflects the logic of ongoing work, not a linear progression.</p>
-  <p>Part of the documentation is available directly here. Another part is accessible via the <a href="https://github.com/Tofmuck" target="_blank" rel="noopener">GitHub repository ↗</a>, in particular the structural files, technical diagrams and experiments.</p>
+  <p>This page now indexes real project documents. It follows the current state of <code>Frida_V4</code>, <code>FridaDev</code>, and <code>frida-ai</code>, without a fictional inventory or claims of completeness beyond the code.</p>
+  <p>Links point either to public files on GitHub or to documents hosted here. The paper on <code>M6</code> is available directly on this site as a PDF.</p>
 </section>
 
 <section class="section">
 
-  <!-- WORKING NOTES -->
+  <!-- PAPER -->
   <div class="doc-category">
-    <p class="doc-category-title">Working notes</p>
+    <p class="doc-category-title">Paper and working draft</p>
     <ul class="doc-list">
       <li class="doc-item">
-        <span class="doc-name">On the distinction between understanding and generation — first formulations</span>
-        <span class="doc-meta"><span class="tag tag-accent">published</span></span>
+        <span class="doc-name"><a href="/assets/docs/M6-paper-acm-v0.pdf">M6: An Evidence-Bounded Dialogic Regime Controller for Memory-Augmented Conversational Retrieval</a></span>
+        <span class="doc-meta"><span class="tag tag-accent">pdf</span></span>
       </li>
       <li class="doc-item">
-        <span class="doc-name">Critique of the plausibilist paradigm in contemporary LLMs</span>
-        <span class="doc-meta"><span class="tag tag-accent">published</span></span>
-      </li>
-      <li class="doc-item">
-        <span class="doc-name">Hermeneutics and software architecture — points of convergence</span>
-        <span class="doc-meta"><span class="tag">in progress</span></span>
-      </li>
-      <li class="doc-item">
-        <span class="doc-name">Suspension of response as an epistemic stance</span>
-        <span class="doc-meta"><span class="tag">in progress</span></span>
-      </li>
-      <li class="doc-item">
-        <span class="doc-name">Memory, trace and weighting — towards a taxonomy</span>
-        <span class="doc-meta"><span class="tag tag-muted">forthcoming</span></span>
+        <span class="doc-name">Academic working draft of the <code>M6 Stimmung</code> module, written for an IR/LLM publication trajectory.</span>
+        <span class="doc-meta"><span class="tag">draft</span></span>
       </li>
     </ul>
   </div>
 
-  <!-- STRUCTURAL DOCUMENTS -->
+  <!-- ARCHITECTURE -->
   <div class="doc-category">
-    <p class="doc-category-title">Structural documents</p>
+    <p class="doc-category-title">Architecture and current-state</p>
     <ul class="doc-list">
       <li class="doc-item">
-        <span class="doc-name">General architecture — overview and layers</span>
-        <span class="doc-meta"><span class="tag tag-accent">published</span></span>
+        <span class="doc-name"><a href="https://github.com/Tofmuck/Frida_V4/blob/main/Frida_V4/Docs/Plan1.md" target="_blank" rel="noopener">Frida_V4 — Operational architecture (frozen plan, version 0)</a></span>
+        <span class="doc-meta"><span class="tag tag-accent">GitHub</span></span>
       </li>
       <li class="doc-item">
-        <span class="doc-name">Arbitration module specification</span>
-        <span class="doc-meta"><span class="tag">in progress</span></span>
+        <span class="doc-name"><a href="https://github.com/Tofmuck/FridaDev/blob/main/app/docs/states/architecture/fridadev-current-runtime-pipeline.md" target="_blank" rel="noopener">FridaDev Current Runtime Pipeline</a></span>
+        <span class="doc-meta"><span class="tag tag-accent">GitHub</span></span>
       </li>
       <li class="doc-item">
-        <span class="doc-name">Structured memory layer specification</span>
-        <span class="doc-meta"><span class="tag">in progress</span></span>
-      </li>
-      <li class="doc-item">
-        <span class="doc-name">Memorised trace revision protocol</span>
-        <span class="doc-meta"><span class="tag tag-muted">forthcoming</span></span>
-      </li>
-      <li class="doc-item">
-        <span class="doc-name">Dialogue interface — constraints and invariants</span>
-        <span class="doc-meta"><span class="tag tag-muted">forthcoming</span></span>
+        <span class="doc-name"><a href="https://github.com/Tofmuck/FridaDev/blob/main/app/docs/todo-done/audits/fridadev_repo_audit.md" target="_blank" rel="noopener">FridaDev Repo Audit</a></span>
+        <span class="doc-meta"><span class="tag tag-accent">GitHub</span></span>
       </li>
     </ul>
   </div>
 
-  <!-- HYPOTHESES -->
+  <!-- MODULES -->
   <div class="doc-category">
-    <p class="doc-category-title">Hypotheses</p>
+    <p class="doc-category-title">Modules, audits, and doctrine</p>
     <ul class="doc-list">
       <li class="doc-item">
-        <span class="doc-name">H-01 — Interpretive rigour is an emergent property of architecture, not of the model</span>
-        <span class="doc-meta"><span class="tag tag-accent">stated</span></span>
+        <span class="doc-name"><a href="https://github.com/Tofmuck/Frida_V4/blob/main/Frida_V4/Docs/M6_Stimmung_Release_Dossier.md" target="_blank" rel="noopener">M6 Stimmung Release Dossier</a></span>
+        <span class="doc-meta"><span class="tag tag-accent">GitHub</span></span>
       </li>
       <li class="doc-item">
-        <span class="doc-name">H-02 — Response suspension improves long-term confidence more than systematic response</span>
-        <span class="doc-meta"><span class="tag tag-accent">stated</span></span>
+        <span class="doc-name"><a href="https://github.com/Tofmuck/Frida_V4/blob/main/Frida_V4/Docs/Agentic_Frida_Audit.md" target="_blank" rel="noopener">FRIDA V4 — Agentic implementation audit</a></span>
+        <span class="doc-meta"><span class="tag tag-accent">GitHub</span></span>
       </li>
       <li class="doc-item">
-        <span class="doc-name">H-03 — A hierarchised memory reduces longitudinal contradictions without prohibitive cost</span>
-        <span class="doc-meta"><span class="tag">under review</span></span>
+        <span class="doc-name"><a href="https://github.com/Tofmuck/FridaDev/blob/main/app/docs/states/specs/chat-enunciation-and-gap-contract.md" target="_blank" rel="noopener">Chat Enunciation and Gap Contract</a></span>
+        <span class="doc-meta"><span class="tag tag-accent">GitHub</span></span>
       </li>
       <li class="doc-item">
-        <span class="doc-name">H-04 — Explicit uncertainty positively modifies user behaviour</span>
-        <span class="doc-meta"><span class="tag tag-muted">to be stated</span></span>
+        <span class="doc-name"><a href="https://github.com/Tofmuck/FridaDev/blob/main/app/docs/states/specs/streaming-protocol.md" target="_blank" rel="noopener">Streaming Protocol</a></span>
+        <span class="doc-meta"><span class="tag tag-accent">GitHub</span></span>
       </li>
     </ul>
   </div>
 
-  <!-- SUMMARY TABLES -->
+  <!-- MEMORY AND EVALUATION -->
   <div class="doc-category">
-    <p class="doc-category-title">Summary tables</p>
+    <p class="doc-category-title">Memory, RAG, and evaluation</p>
     <ul class="doc-list">
       <li class="doc-item">
-        <span class="doc-name">Comparison of memory approaches in RAG systems and Frida</span>
-        <span class="doc-meta"><span class="tag">in progress</span></span>
+        <span class="doc-name"><a href="https://github.com/Tofmuck/FridaDev/blob/main/app/docs/states/architecture/memory-rag-current-pipeline-cartography.md" target="_blank" rel="noopener">Memory-RAG Current Pipeline Cartography</a></span>
+        <span class="doc-meta"><span class="tag tag-accent">GitHub</span></span>
       </li>
       <li class="doc-item">
-        <span class="doc-name">Taxonomy of trace types and weighting criteria</span>
-        <span class="doc-meta"><span class="tag tag-muted">forthcoming</span></span>
+        <span class="doc-name"><a href="https://github.com/Tofmuck/FridaDev/blob/main/app/docs/states/baselines/memory-rag-relevance-baseline-2026-04-10.md" target="_blank" rel="noopener">Memory-RAG Relevance Baseline (2026-04-10)</a></span>
+        <span class="doc-meta"><span class="tag tag-accent">GitHub</span></span>
       </li>
       <li class="doc-item">
-        <span class="doc-name">Arbitration module decision matrix — typical cases</span>
-        <span class="doc-meta"><span class="tag tag-muted">forthcoming</span></span>
-      </li>
-      <li class="doc-item">
-        <span class="doc-name">System invariants inventory — current version</span>
-        <span class="doc-meta"><span class="tag tag-accent">published</span></span>
+        <span class="doc-name"><a href="https://github.com/Tofmuck/FridaDev/blob/main/app/docs/states/specs/memory-admin-surface-contract.md" target="_blank" rel="noopener">Memory Admin Surface Contract</a></span>
+        <span class="doc-meta"><span class="tag tag-accent">GitHub</span></span>
       </li>
     </ul>
   </div>
 
-  <!-- EXPERIMENTS -->
+  <!-- REPOSITORIES -->
   <div class="doc-category">
-    <p class="doc-category-title">Experiments</p>
+    <p class="doc-category-title">Repositories</p>
     <ul class="doc-list">
       <li class="doc-item">
-        <span class="doc-name">Exp-01 — Weighted memory prototype on long exchanges</span>
-        <span class="doc-meta"><span class="tag">in progress</span></span>
+        <span class="doc-name"><a href="https://github.com/Tofmuck/Frida_V4" target="_blank" rel="noopener">Frida_V4</a></span>
+        <span class="doc-meta"><span class="tag tag-accent">repo</span></span>
       </li>
       <li class="doc-item">
-        <span class="doc-name">Exp-02 — Implementation of a configurable suspension threshold</span>
-        <span class="doc-meta"><span class="tag tag-muted">forthcoming</span></span>
+        <span class="doc-name"><a href="https://github.com/Tofmuck/FridaDev" target="_blank" rel="noopener">FridaDev</a></span>
+        <span class="doc-meta"><span class="tag tag-accent">repo</span></span>
       </li>
       <li class="doc-item">
-        <span class="doc-name">Exp-03 — Longitudinal coherence evaluation on dialogue corpus</span>
-        <span class="doc-meta"><span class="tag tag-muted">forthcoming</span></span>
+        <span class="doc-name"><a href="https://github.com/Tofmuck/frida-ai" target="_blank" rel="noopener">frida-ai</a></span>
+        <span class="doc-meta"><span class="tag tag-accent">repo</span></span>
       </li>
     </ul>
   </div>
@@ -182,9 +158,10 @@
 
 <!-- FOOTER NOTE -->
 <section class="section">
-  <p class="text-muted text-sm">Documents marked <span class="tag tag-accent">published</span> are accessible. Those marked <span class="tag">in progress</span> are being written. Those marked <span class="tag tag-muted">forthcoming</span> are planned. Documentation evolves with the project — some documents may be withdrawn, merged or reformulated.</p>
+  <p class="text-muted text-sm">This page will evolve at the pace of the repositories. Some documents are stable, others are audits or drafts. The principle is simple: link real, sourced references that are situated in the project's current state.</p>
   <div class="btn-row">
-    <a href="https://github.com/Tofmuck" class="btn btn-accent" target="_blank" rel="noopener">Access the GitHub repository ↗</a>
+    <a href="/assets/docs/M6-paper-acm-v0.pdf" class="btn btn-accent">Open the M6 paper</a>
+    <a href="https://github.com/Tofmuck" class="btn" target="_blank" rel="noopener">View GitHub ↗</a>
   </div>
 </section>
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Architecture — Frida</title>
-  <meta name="description" content="Structure et organisation du système Frida : principes, couches, invariants et problèmes ouverts.">
+  <meta name="description" content="Cartographie actuelle de Frida : dépôts, runtimes, modules, invariants et problèmes encore ouverts.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -47,15 +47,15 @@
 <!-- EN-TÊTE DE PAGE -->
 <div class="page-header">
   <p class="page-eyebrow">Architecture</p>
-  <h1 class="page-title">Structure du système</h1>
-  <p class="page-desc">Principes d'organisation, couches fonctionnelles, invariants et tensions en cours d'exploration.</p>
+  <h1 class="page-title">Cartographie actuelle</h1>
+  <p class="page-desc">Dépôts, runtimes, modules, invariants et tensions&nbsp;: le projet tel qu'il existe aujourd'hui, et non tel qu'il serait commode de le raconter.</p>
 </div>
 
 <!-- PRINCIPES STRUCTURAUX -->
 <section class="section">
   <p class="label">I. Principes</p>
   <h2 class="section-title">Principes structuraux</h2>
-  <p>L'architecture de Frida repose sur un ensemble de principes qui distinguent ce projet des systèmes de génération standard. Ces principes ne sont pas des choix d'implémentation parmi d'autres&nbsp;: ils sont constitutifs de l'intention du projet.</p>
+  <p>Frida ne repose pas sur un seul codebase ni sur une seule surface d'usage. Son architecture s'est épaissie en deux runtimes complémentaires et un site documentaire. Les principes ci-dessous servent à maintenir une cohérence intellectuelle et technique entre ces formes.</p>
 
   <table class="data-table" style="margin-top: 2rem;">
     <thead>
@@ -66,28 +66,28 @@
     </thead>
     <tbody>
       <tr>
-        <td><strong>Séparation génération / validation</strong></td>
-        <td>La production d'une réponse et l'évaluation de sa validité sont deux processus distincts. L'un ne subsume pas l'autre.</td>
+        <td><strong>Décomposition modulaire explicite</strong></td>
+        <td>Les responsabilités sont nommées et séparées autant que possible&nbsp;: orchestration, mémoire, résumés, récupération, régime dialogique, arbitrage, documents, LLM, outils locaux.</td>
       </tr>
       <tr>
-        <td><strong>Mémoire hiérarchisée</strong></td>
-        <td>Les traces mémorisées ne sont pas équivalentes. Elles sont pondérées selon leur fiabilité, leur ancienneté et leur pertinence contextuelle.</td>
+        <td><strong>Deux runtimes, un même programme</strong></td>
+        <td><code>Frida_V4</code> et <code>FridaDev</code> n'implémentent pas exactement la même chose, mais ils travaillent le même noyau de problèmes&nbsp;: continuité dialogique, mémoire, jugement, observabilité.</td>
       </tr>
       <tr>
-        <td><strong>Incertitude explicite</strong></td>
-        <td>Toute inférence porte une estimation de son degré de certitude. Cette estimation est transmise à la couche supérieure et peut influer sur la décision de répondre.</td>
+        <td><strong>Statuts distincts de la mémoire</strong></td>
+        <td>Une trace, un résumé, un snippet récupéré, un document imposé ou un log opérateur n'ont pas le même statut. Les confondre revient à perdre la discipline du système.</td>
       </tr>
       <tr>
-        <td><strong>Suspension comme sortie valide</strong></td>
-        <td>Le système peut — et doit — suspendre sa réponse lorsque les conditions épistémiques ne sont pas satisfaites. L'absence de réponse est une réponse.</td>
+        <td><strong>Fail-open et modes dégradés visibles</strong></td>
+        <td>Un module en échec ne doit pas se faire passer pour un succès silencieux. Les replis, les interruptions et les limites runtime doivent rester explicites.</td>
       </tr>
       <tr>
-        <td><strong>Révisabilité</strong></td>
-        <td>Les inférences passées peuvent être remises en cause par de nouvelles informations. La révision laisse une trace explicite dans la mémoire structurée.</td>
+        <td><strong>Observabilité first</strong></td>
+        <td>Les journaux, les audits, les panneaux d'administration et les états de persistance font partie de l'architecture, pas d'une surcouche facultative.</td>
       </tr>
       <tr>
-        <td><strong>Cohérence longitudinale</strong></td>
-        <td>Le système maintient une cohérence entre les échanges dans le temps. Les contradictions avec des positions antérieures sont détectées et traitées explicitement.</td>
+        <td><strong>Documentation alignée sur le code</strong></td>
+        <td>Le site public et les documents ne doivent pas annoncer un système fictif. Ils doivent refléter le current-state, ses preuves et ses manques.</td>
       </tr>
     </tbody>
   </table>
@@ -97,31 +97,31 @@
 <section class="section">
   <p class="label">II. Organisation</p>
   <h2 class="section-title">Couches et modules</h2>
-  <p>Le système est organisé en trois couches principales, articulées par un module d'arbitrage central. Cette organisation reflète la distinction entre les opérations de bas niveau (mémorisation, interprétation locale) et les opérations de haut niveau (cohérence, validation, décision de réponse).</p>
+  <p>Frida n'est plus un schéma unique posé sur un tableau. Le projet existe aujourd'hui sous forme d'un runtime natif, d'un runtime web et d'un site public. L'unité ne tient pas à une implémentation identique, mais à la persistance de certaines questions et de certains contrats.</p>
 
   <div class="arch-diagram">
     <div class="arch-layer">
-      <span class="arch-layer-title">Couche Dialogue</span>
-      <span class="arch-layer-sub">interface · formulation de la requête · réponse synthétisée</span>
+      <span class="arch-layer-title">Surfaces utilisateur</span>
+      <span class="arch-layer-sub">chat natif · chat web · documentation publique</span>
     </div>
     <div class="arch-arrow">↕</div>
     <div class="arch-layer" style="border-color: var(--accent);">
-      <span class="arch-layer-title">Module d'Arbitrage</span>
-      <span class="arch-layer-sub">cohérence · validation · suspension · explicitation de l'incertitude</span>
+      <span class="arch-layer-title">Orchestration, jugement, garde-fous</span>
+      <span class="arch-layer-sub">routing · mémoire · régime dialogique · streaming · observabilité</span>
     </div>
     <div class="arch-arrow">↕</div>
     <div class="arch-cols">
       <div class="arch-layer">
-        <span class="arch-layer-title">Mémoire structurée</span>
-        <span class="arch-layer-sub">contexte · historique · continuité · pondération des traces</span>
+        <span class="arch-layer-title">Frida_V4</span>
+        <span class="arch-layer-sub">Swift · modules M0-M9 · agentique locale · Whisper · TTS</span>
       </div>
       <div class="arch-layer">
-        <span class="arch-layer-title">Interprétation</span>
-        <span class="arch-layer-sub">analyse · contextualisation · inférence · révision</span>
+        <span class="arch-layer-title">FridaDev</span>
+        <span class="arch-layer-sub">Python/Flask · mémoire · branche herméneutique · streaming · admin</span>
       </div>
       <div class="arch-layer">
-        <span class="arch-layer-title">Preuves &amp; Traces</span>
-        <span class="arch-layer-sub">hiérarchisation · validation · incertitude résiduelle</span>
+        <span class="arch-layer-title">frida-ai</span>
+        <span class="arch-layer-sub">site bilingue · documents publics · article M6 · index des références</span>
       </div>
     </div>
   </div>
@@ -136,29 +136,29 @@
     </thead>
     <tbody>
       <tr>
-        <td>Couche Dialogue</td>
-        <td>Interface avec l'utilisateur. Reformulation, clarification des ambiguïtés, synthèse de la réponse finale.</td>
-        <td><span class="tag">en cours</span></td>
+        <td>Frida_V4</td>
+        <td>Runtime natif macOS en Swift. Décomposition modulaire <code>M0</code> à <code>M9</code>, boucle agentique locale, intégrations Whisper, documents et TTS, forte densité de tests.</td>
+        <td><span class="tag">actif</span></td>
       </tr>
       <tr>
-        <td>Module d'Arbitrage</td>
-        <td>Évaluation de la cohérence des inférences. Décision de répondre, reformuler ou suspendre. Explicitation de l'incertitude.</td>
-        <td><span class="tag">conception</span></td>
+        <td>FridaDev</td>
+        <td>Runtime web Python/Flask. Pipeline chat avec session, mémoire, enrichissement summaries, branche herméneutique, contrat de streaming public, persistance canonique et surfaces admin.</td>
+        <td><span class="tag">actif</span></td>
       </tr>
       <tr>
-        <td>Mémoire structurée</td>
-        <td>Stockage hiérarchisé des traces contextuelles. Gestion de l'obsolescence et des révisions. Pondération par fiabilité.</td>
-        <td><span class="tag">en cours</span></td>
+        <td>frida-ai</td>
+        <td>Site statique bilingue. Rôle actuel&nbsp;: exposer l'état réel du projet, indexer les documents publics et fournir un point d'entrée lisible vers les dépôts et les papiers.</td>
+        <td><span class="tag">en ligne</span></td>
       </tr>
       <tr>
-        <td>Interprétation</td>
-        <td>Analyse contextuelle des entrées. Production d'inférences situées. Révision en fonction des nouvelles données.</td>
-        <td><span class="tag">conception</span></td>
+        <td>M6 Stimmung</td>
+        <td>Module de régime dialogique borné par preuves. Il ne lit pas une humeur au sens psychologique&nbsp;: il travaille la stabilité et la discipline du tour.</td>
+        <td><span class="tag">actif</span></td>
       </tr>
       <tr>
-        <td>Preuves &amp; Traces</td>
-        <td>Hiérarchisation des éléments probants. Gestion des degrés de certitude. Traçabilité des sources d'inférence.</td>
-        <td><span class="tag">conception</span></td>
+        <td>Documentation d'exploitation</td>
+        <td>Audits current-state, cartographies runtime, politiques de données, contrats de streaming, traces de migration et fichiers TODO clos ou actifs.</td>
+        <td><span class="tag">actif</span></td>
       </tr>
     </tbody>
   </table>
@@ -168,17 +168,17 @@
 <section class="section">
   <p class="label">III. Invariants</p>
   <h2 class="section-title">Invariants du système</h2>
-  <p>Les invariants sont les propriétés que le système doit maintenir en toute circonstance. Ils constituent une forme de spécification normative de ce qu'est — et de ce que n'est pas — Frida.</p>
+  <p>Les invariants ci-dessous décrivent moins un idéal abstrait qu'une ligne de conduite commune aux différents dépôts.</p>
 
   <ol class="invariants">
-    <li>Toute réponse produite est accompagnée d'une estimation de son degré de certitude, disponible pour la couche d'arbitrage.</li>
-    <li>Aucune réponse n'est transmise à la couche Dialogue sans avoir été évaluée par le module d'Arbitrage.</li>
-    <li>La suspension de la réponse est toujours préférable à la production d'une réponse dont la validité est inférieure au seuil défini.</li>
-    <li>Toute révision d'une inférence antérieure laisse une trace explicite dans la mémoire structurée, avec la justification de la révision.</li>
-    <li>Les traces mémorisées sont pondérées&nbsp;: leur poids peut être augmenté (confirmation) ou diminué (réfutation partielle, obsolescence).</li>
-    <li>La cohérence longitudinale est vérifiée avant toute réponse engageant une position antérieure du système.</li>
-    <li>L'incertitude n'est jamais masquée dans la fluidité de la réponse. Elle est nommée ou la réponse est suspendue.</li>
-    <li>Le système distingue ce qu'il <em>sait</em> (trace fiable et vérifiée), ce qu'il <em>infère</em> (dérivé de traces existantes) et ce qu'il <em>suppose</em> (extrapolation non vérifiable).</li>
+    <li>La documentation publique doit rester alignée sur l'état réel du code, des tests et des audits.</li>
+    <li>L'orchestrateur doit rester plus léger que les modules sémantiques qu'il relie&nbsp;: il route, il assemble, il ne doit pas absorber tout le sens du système.</li>
+    <li>Trace, résumé, snippet récupéré, document injecté et log opérateur conservent des statuts distincts.</li>
+    <li>Un signal dialogique ou herméneutique n'est jamais une preuve en soi. Il oriente un régime de traitement, il ne remplace pas une base factuelle.</li>
+    <li>La persistance canonique et les contrats de streaming comptent autant que l'appel modèle&nbsp;: sans eux, le dialogue n'a pas de mémoire fiable.</li>
+    <li>Les capacités locales ou agentiques doivent rester bornées par des profils d'exécution, des journaux et des garde-fous explicites.</li>
+    <li>Les deux runtimes peuvent diverger techniquement, mais ils doivent pouvoir être décrits dans un vocabulaire conceptuel compatible.</li>
+    <li>L'évaluation d'un module ne peut pas se limiter à la qualité apparente de la sortie&nbsp;: il faut aussi regarder les refus, les révisions, les interruptions et les modes dégradés.</li>
   </ol>
 </section>
 
@@ -186,19 +186,19 @@
 <section class="section">
   <p class="label">IV. Tensions et questions ouvertes</p>
   <h2 class="section-title">Problèmes en cours d'exploration</h2>
-  <p>Frida ne prétend pas avoir résolu ces questions. Elles constituent le cœur du chantier en cours.</p>
+  <p>Le projet est actif précisément parce que ces questions ne sont pas closes.</p>
 
   <ul class="problems">
-    <li><strong>Granularité des traces.</strong> À quel niveau de granularité faut-il mémoriser&nbsp;? Quelle est l'unité minimale d'une trace pertinente&nbsp;? Comment hiérarchiser sans perdre la richesse contextuelle&nbsp;?</li>
-    <li><strong>Seuil de suspension.</strong> Comment déterminer le seuil en dessous duquel la réponse doit être suspendue&nbsp;? Ce seuil est-il fixe, contextuel, ou dépendant du domaine de la question&nbsp;?</li>
-    <li><strong>Gestion des contradictions.</strong> Lorsque deux traces mémorisées se contredisent, comment arbitrer sans décider arbitrairement&nbsp;? La contradiction doit-elle être exposée à l'utilisateur ou traitée silencieusement&nbsp;?</li>
-    <li><strong>Coût computationnel de la rigueur.</strong> La séparation génération / validation et la vérification de cohérence longitudinale ont un coût. Comment maintenir ces exigences à l'échelle&nbsp;?</li>
-    <li><strong>Évaluation de la compréhension.</strong> Comment mesurer qu'un système <em>comprend</em> plutôt que <em>génère</em>&nbsp;? Quels critères d'évaluation sont pertinents et non circulaires&nbsp;?</li>
+    <li><strong>Évaluation du régime dialogique.</strong> Comment mesurer l'effet réel d'un module comme <code>M6</code> sur la cohérence, la non-surinterprétation ou la stabilité de la réponse&nbsp;?</li>
+    <li><strong>Convergence des runtimes.</strong> Jusqu'où <code>Frida_V4</code> et <code>FridaDev</code> doivent-ils converger sans être artificiellement forcés dans un moule unique&nbsp;?</li>
+    <li><strong>Mémoire et documents.</strong> Comment articuler récupération mémoire, résumés et documents imposés sans brouiller leur hiérarchie ni perdre la lisibilité opérateur&nbsp;?</li>
+    <li><strong>Voix, outils locaux, sécurité.</strong> Comment enrichir les capacités agentiques et multimodales sans défaire les exigences de contrôle, d'audit et de moindre surprise&nbsp;?</li>
+    <li><strong>Publication scientifique honnête.</strong> Comment transformer certains modules en articles publiables sans surpromettre les résultats ni aplatir les limites actuelles du code&nbsp;?</li>
   </ul>
 
   <div class="btn-row">
-    <a href="https://github.com/Tofmuck" class="btn btn-accent" target="_blank" rel="noopener">Voir le code sur GitHub ↗</a>
-    <a href="/documents.html" class="btn">Documentation</a>
+    <a href="https://github.com/Tofmuck/Frida_V4" class="btn btn-accent" target="_blank" rel="noopener">Voir Frida_V4 ↗</a>
+    <a href="https://github.com/Tofmuck/FridaDev" class="btn" target="_blank" rel="noopener">Voir FridaDev ↗</a>
   </div>
 </section>
 

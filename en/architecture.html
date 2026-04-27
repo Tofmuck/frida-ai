@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Architecture — Frida</title>
-  <meta name="description" content="Structure and organisation of the Frida system: principles, layers, invariants and open problems.">
+  <meta name="description" content="Current map of Frida: repositories, runtimes, modules, invariants, and still-open problems.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -47,15 +47,15 @@
 <!-- PAGE HEADER -->
 <div class="page-header">
   <p class="page-eyebrow">Architecture</p>
-  <h1 class="page-title">System structure</h1>
-  <p class="page-desc">Organisational principles, functional layers, invariants and tensions currently under exploration.</p>
+  <h1 class="page-title">Current map</h1>
+  <p class="page-desc">Repositories, runtimes, modules, invariants, and tensions: the project as it exists today, not as it would be convenient to narrate it.</p>
 </div>
 
 <!-- STRUCTURAL PRINCIPLES -->
 <section class="section">
   <p class="label">I. Principles</p>
   <h2 class="section-title">Structural principles</h2>
-  <p>Frida's architecture rests on a set of principles that distinguish this project from standard generation systems. These principles are not implementation choices among others: they are constitutive of the project's intention.</p>
+  <p>Frida no longer rests on a single codebase or a single surface. Its architecture has thickened into two complementary runtimes and a documentation site. The principles below are what keep those forms intellectually and technically coherent.</p>
 
   <table class="data-table" style="margin-top: 2rem;">
     <thead>
@@ -66,28 +66,28 @@
     </thead>
     <tbody>
       <tr>
-        <td><strong>Separation of generation / validation</strong></td>
-        <td>Producing a response and evaluating its validity are two distinct processes. One does not subsume the other.</td>
+        <td><strong>Explicit modular decomposition</strong></td>
+        <td>Responsibilities are named and separated as far as possible: orchestration, memory, summaries, retrieval, dialogic regime, arbitration, documents, LLM, local tools.</td>
       </tr>
       <tr>
-        <td><strong>Hierarchised memory</strong></td>
-        <td>Memorised traces are not equivalent. They are weighted according to their reliability, age and contextual relevance.</td>
+        <td><strong>Two runtimes, one programme</strong></td>
+        <td><code>Frida_V4</code> and <code>FridaDev</code> do not implement exactly the same thing, but they work on the same core problems: dialogic continuity, memory, judgment, and observability.</td>
       </tr>
       <tr>
-        <td><strong>Explicit uncertainty</strong></td>
-        <td>Every inference carries an estimate of its degree of certainty. This estimate is passed to the upper layer and can influence the decision to respond.</td>
+        <td><strong>Distinct memory statuses</strong></td>
+        <td>A trace, a summary, a retrieved snippet, an imposed document, or an operator log do not have the same status. To confuse them is to lose the discipline of the system.</td>
       </tr>
       <tr>
-        <td><strong>Suspension as a valid output</strong></td>
-        <td>The system can — and must — suspend its response when the epistemic conditions are not satisfied. The absence of a response is a response.</td>
+        <td><strong>Fail-open and visible degraded modes</strong></td>
+        <td>A failed module must not disguise itself as silent success. Fall-backs, interruptions, and runtime limits need to remain explicit.</td>
       </tr>
       <tr>
-        <td><strong>Revisability</strong></td>
-        <td>Past inferences can be called into question by new information. Revision leaves an explicit trace in the structured memory.</td>
+        <td><strong>Observability first</strong></td>
+        <td>Logs, audits, admin surfaces, and persistence states are part of the architecture, not an optional afterthought.</td>
       </tr>
       <tr>
-        <td><strong>Longitudinal coherence</strong></td>
-        <td>The system maintains coherence across exchanges over time. Contradictions with prior positions are detected and handled explicitly.</td>
+        <td><strong>Documentation aligned with the code</strong></td>
+        <td>The public site and documents should not advertise a fictional system. They should reflect current state, evidence, and missing pieces.</td>
       </tr>
     </tbody>
   </table>
@@ -97,31 +97,31 @@
 <section class="section">
   <p class="label">II. Organisation</p>
   <h2 class="section-title">Layers and modules</h2>
-  <p>The system is organised into three main layers, articulated by a central arbitration module. This organisation reflects the distinction between lower-level operations (memorisation, local interpretation) and higher-level operations (coherence, validation, response decision).</p>
+  <p>Frida is no longer a single diagram pinned to a wall. Today the project exists as a native runtime, a web runtime, and a public site. Unity does not come from identical implementation, but from the persistence of shared questions and contracts.</p>
 
   <div class="arch-diagram">
     <div class="arch-layer">
-      <span class="arch-layer-title">Dialogue Layer</span>
-      <span class="arch-layer-sub">interface · query formulation · synthesised response</span>
+      <span class="arch-layer-title">User surfaces</span>
+      <span class="arch-layer-sub">native chat · web chat · public documentation</span>
     </div>
     <div class="arch-arrow">↕</div>
     <div class="arch-layer" style="border-color: var(--accent);">
-      <span class="arch-layer-title">Arbitration Module</span>
-      <span class="arch-layer-sub">coherence · validation · suspension · explicit uncertainty</span>
+      <span class="arch-layer-title">Orchestration, judgment, guardrails</span>
+      <span class="arch-layer-sub">routing · memory · dialogic regime · streaming · observability</span>
     </div>
     <div class="arch-arrow">↕</div>
     <div class="arch-cols">
       <div class="arch-layer">
-        <span class="arch-layer-title">Structured Memory</span>
-        <span class="arch-layer-sub">context · history · continuity · trace weighting</span>
+        <span class="arch-layer-title">Frida_V4</span>
+        <span class="arch-layer-sub">Swift · modules M0-M9 · local agentic loop · Whisper · TTS</span>
       </div>
       <div class="arch-layer">
-        <span class="arch-layer-title">Interpretation</span>
-        <span class="arch-layer-sub">analysis · contextualisation · inference · revision</span>
+        <span class="arch-layer-title">FridaDev</span>
+        <span class="arch-layer-sub">Python/Flask · memory · hermeneutic branch · streaming · admin</span>
       </div>
       <div class="arch-layer">
-        <span class="arch-layer-title">Evidence &amp; Traces</span>
-        <span class="arch-layer-sub">hierarchisation · validation · residual uncertainty</span>
+        <span class="arch-layer-title">frida-ai</span>
+        <span class="arch-layer-sub">bilingual site · public documents · M6 paper · reference index</span>
       </div>
     </div>
   </div>
@@ -136,29 +136,29 @@
     </thead>
     <tbody>
       <tr>
-        <td>Dialogue Layer</td>
-        <td>User interface. Reformulation, clarification of ambiguities, synthesis of the final response.</td>
-        <td><span class="tag">in progress</span></td>
+        <td>Frida_V4</td>
+        <td>Native macOS runtime in Swift. Modular decomposition from <code>M0</code> to <code>M9</code>, local agentic execution, Whisper, documents, TTS, and a high density of tests.</td>
+        <td><span class="tag">active</span></td>
       </tr>
       <tr>
-        <td>Arbitration Module</td>
-        <td>Evaluation of inference coherence. Decision to respond, reformulate or suspend. Explicit uncertainty.</td>
-        <td><span class="tag">design</span></td>
+        <td>FridaDev</td>
+        <td>Python/Flask web runtime. Chat pipeline with session handling, memory, summary enrichment, hermeneutic branch, public streaming contract, canonical persistence, and admin surfaces.</td>
+        <td><span class="tag">active</span></td>
       </tr>
       <tr>
-        <td>Structured Memory</td>
-        <td>Hierarchised storage of contextual traces. Obsolescence and revision management. Reliability weighting.</td>
-        <td><span class="tag">in progress</span></td>
+        <td>frida-ai</td>
+        <td>Bilingual static site. Current role: expose the real state of the project, index public documents, and provide a readable entry point into repositories and papers.</td>
+        <td><span class="tag">online</span></td>
       </tr>
       <tr>
-        <td>Interpretation</td>
-        <td>Contextual analysis of inputs. Production of situated inferences. Revision based on new data.</td>
-        <td><span class="tag">design</span></td>
+        <td>M6 Stimmung</td>
+        <td>An evidence-bounded dialogic regime module. It is not psychological mood-reading; it works on turn stability and dialogic discipline.</td>
+        <td><span class="tag">active</span></td>
       </tr>
       <tr>
-        <td>Evidence &amp; Traces</td>
-        <td>Hierarchisation of probative elements. Management of degrees of certainty. Traceability of inference sources.</td>
-        <td><span class="tag">design</span></td>
+        <td>Operational documentation</td>
+        <td>Current-state audits, runtime cartographies, data policies, streaming contracts, migration traces, and active or archived TODO files.</td>
+        <td><span class="tag">active</span></td>
       </tr>
     </tbody>
   </table>
@@ -168,17 +168,17 @@
 <section class="section">
   <p class="label">III. Invariants</p>
   <h2 class="section-title">System invariants</h2>
-  <p>Invariants are the properties the system must maintain under all circumstances. They constitute a form of normative specification of what Frida is — and is not.</p>
+  <p>The invariants below describe less an abstract ideal than a common line of conduct across the repositories.</p>
 
   <ol class="invariants">
-    <li>Every response produced carries an estimate of its degree of certainty, available to the arbitration layer.</li>
-    <li>No response is passed to the Dialogue Layer without having been evaluated by the Arbitration Module.</li>
-    <li>Suspension of response is always preferable to producing a response whose validity falls below the defined threshold.</li>
-    <li>Any revision of a prior inference leaves an explicit trace in the structured memory, with the justification for the revision.</li>
-    <li>Memorised traces are weighted: their weight can be increased (confirmation) or decreased (partial refutation, obsolescence).</li>
-    <li>Longitudinal coherence is verified before any response engaging a prior position of the system.</li>
-    <li>Uncertainty is never concealed in the fluency of the response. It is named, or the response is suspended.</li>
-    <li>The system distinguishes what it <em>knows</em> (reliable and verified trace), what it <em>infers</em> (derived from existing traces) and what it <em>supposes</em> (unverifiable extrapolation).</li>
+    <li>Public documentation must remain aligned with the real state of code, tests, and audits.</li>
+    <li>The orchestrator should stay lighter than the semantic modules it connects: it routes and assembles, it should not absorb all the system's meaning.</li>
+    <li>Trace, summary, retrieved snippet, injected document, and operator log keep distinct statuses.</li>
+    <li>A dialogic or hermeneutic signal is never evidence by itself. It can orient a processing regime; it does not replace a factual basis.</li>
+    <li>Canonical persistence and streaming contracts matter as much as model calls: without them, dialogue has no reliable memory.</li>
+    <li>Local or agentic capabilities must remain bounded by execution profiles, logs, and explicit guardrails.</li>
+    <li>The two runtimes may diverge technically, but they should remain describable in a compatible conceptual vocabulary.</li>
+    <li>Module evaluation cannot stop at attractive output quality; it must also inspect refusals, revisions, interruptions, and degraded modes.</li>
   </ol>
 </section>
 
@@ -186,19 +186,19 @@
 <section class="section">
   <p class="label">IV. Tensions and open questions</p>
   <h2 class="section-title">Problems currently under exploration</h2>
-  <p>Frida does not claim to have resolved these questions. They constitute the heart of the ongoing work.</p>
+  <p>The project remains active precisely because these questions are not settled.</p>
 
   <ul class="problems">
-    <li><strong>Trace granularity.</strong> At what level of granularity should traces be memorised? What is the minimal unit of a relevant trace? How to hierarchise without losing contextual richness?</li>
-    <li><strong>Suspension threshold.</strong> How to determine the threshold below which a response must be suspended? Is this threshold fixed, contextual, or domain-dependent?</li>
-    <li><strong>Handling contradictions.</strong> When two memorised traces contradict each other, how to arbitrate without deciding arbitrarily? Should the contradiction be exposed to the user or handled silently?</li>
-    <li><strong>Computational cost of rigour.</strong> The separation between generation and validation, and longitudinal coherence checking, have a cost. How to maintain these requirements at scale?</li>
-    <li><strong>Evaluating understanding.</strong> How to measure that a system <em>understands</em> rather than <em>generates</em>? What evaluation criteria are relevant and non-circular?</li>
+    <li><strong>Evaluating dialogic regime control.</strong> How should the real effect of a module such as <code>M6</code> on coherence, non-overinterpretation, or response stability be measured?</li>
+    <li><strong>Runtime convergence.</strong> How far should <code>Frida_V4</code> and <code>FridaDev</code> converge without being artificially forced into one mould?</li>
+    <li><strong>Memory and documents.</strong> How should memory retrieval, summaries, and imposed documents be articulated without collapsing their hierarchy or operator legibility?</li>
+    <li><strong>Voice, local tools, security.</strong> How can agentic and multimodal capabilities be enriched without undoing requirements of control, auditability, and least surprise?</li>
+    <li><strong>Honest scientific publication.</strong> How can some modules be turned into publishable papers without overselling results or flattening the code's current limitations?</li>
   </ul>
 
   <div class="btn-row">
-    <a href="https://github.com/Tofmuck" class="btn btn-accent" target="_blank" rel="noopener">View code on GitHub ↗</a>
-    <a href="/en/documents.html" class="btn">Documentation</a>
+    <a href="https://github.com/Tofmuck/Frida_V4" class="btn btn-accent" target="_blank" rel="noopener">See Frida_V4 ↗</a>
+    <a href="https://github.com/Tofmuck/FridaDev" class="btn" target="_blank" rel="noopener">See FridaDev ↗</a>
   </div>
 </section>
 
