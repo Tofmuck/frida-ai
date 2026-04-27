@@ -28,7 +28,7 @@
 }
 
 html {
-  font-size: 18px;
+  font-size: 17px;
   scroll-behavior: smooth;
 }
 
@@ -39,7 +39,7 @@ body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font-serif);
-  line-height: 1.78;
+  line-height: 1.74;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -53,8 +53,35 @@ p {
   margin-bottom: 1.25rem;
 }
 
+p strong,
+p b,
+li strong,
+li b,
+td strong,
+td b,
+.doc-name strong,
+.doc-name b,
+.problems strong,
+.problems b,
+.invariants strong,
+.invariants b {
+  font-weight: inherit;
+  font-style: inherit;
+  color: var(--text);
+}
+
 p:last-child {
   margin-bottom: 0;
+}
+
+code {
+  font-family: var(--font-sans);
+  font-size: 0.9em;
+  font-weight: inherit;
+  font-style: inherit;
+  background: transparent;
+  color: var(--text);
+  padding: 0;
 }
 
 a {
@@ -272,10 +299,10 @@ li {
 }
 
 .hero-desc {
-  font-family: var(--font-sans);
-  font-size: 0.86rem;
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.68;
   max-width: 460px;
 }
 
@@ -307,10 +334,10 @@ li {
 }
 
 .page-desc {
-  font-family: var(--font-sans);
-  font-size: 0.84rem;
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.68;
   max-width: 440px;
 }
 
@@ -330,18 +357,18 @@ li {
 }
 
 .section-title {
-  font-size: 1.45rem;
+  font-size: 1.3rem;
   margin-bottom: 1.25rem;
 }
 
 .section-title-lg {
-  font-size: 1.85rem;
+  font-size: 1.65rem;
   margin-bottom: 1.5rem;
 }
 
 .lede {
-  font-size: 1.08rem;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1.72;
 }
 
 
@@ -372,16 +399,16 @@ li {
 }
 
 .axis-title {
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 0.95rem;
+  font-weight: 400;
   margin-bottom: 0.5rem;
   line-height: 1.3;
 }
 
 .axis-text {
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   color: var(--text-muted);
-  line-height: 1.65;
+  line-height: 1.7;
   margin: 0;
 }
 
@@ -408,13 +435,13 @@ li {
 }
 
 .arch-layer-title {
-  font-weight: 500;
-  font-size: 0.84rem;
+  font-weight: 400;
+  font-size: 0.82rem;
   letter-spacing: 0.01em;
 }
 
 .arch-layer-sub {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   color: var(--text-muted);
   letter-spacing: 0.02em;
 }
@@ -448,7 +475,7 @@ li {
 .data-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   margin: 1.5rem 0;
 }
 
@@ -526,8 +553,8 @@ li {
 }
 
 .participate p {
-  font-size: 0.95rem;
-  line-height: 1.72;
+  font-size: 0.9rem;
+  line-height: 1.7;
   margin-bottom: 0.85rem;
 }
 
@@ -617,7 +644,7 @@ li {
   gap: 1.5rem;
   padding: 0.65rem 0;
   border-bottom: 1px solid var(--border);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
 }
 
 .doc-item:last-child {
@@ -666,8 +693,8 @@ li {
   padding: 0.75rem 0;
   border-bottom: 1px solid var(--border);
   align-items: baseline;
-  font-size: 0.95rem;
-  line-height: 1.65;
+  font-size: 0.9rem;
+  line-height: 1.7;
 }
 
 .invariants li:last-child {
@@ -700,8 +727,8 @@ li {
   padding: 0.85rem 0 0.85rem 1.5rem;
   border-bottom: 1px solid var(--border);
   position: relative;
-  font-size: 0.95rem;
-  line-height: 1.68;
+  font-size: 0.9rem;
+  line-height: 1.72;
 }
 
 .problems li:last-child {
@@ -735,16 +762,16 @@ li {
 }
 
 .theme-title {
-  font-size: 1.05rem;
-  font-weight: 500;
+  font-size: 0.98rem;
+  font-weight: 400;
   margin-bottom: 0.65rem;
   letter-spacing: 0;
 }
 
 .theme p {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
-  line-height: 1.72;
+  line-height: 1.7;
   margin: 0;
 }
 
