@@ -5,6 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Philosophie — Frida</title>
   <meta name="description" content="Hypothèses de travail de Frida : dialogue, mémoire, documents, révision, statut des preuves et conséquences architecturales.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://frida-ai.fr/philosophie.html">
+  <link rel="alternate" hreflang="fr" href="https://frida-ai.fr/philosophie.html">
+  <link rel="alternate" hreflang="en" href="https://frida-ai.fr/en/philosophy.html">
+  <link rel="alternate" hreflang="x-default" href="https://frida-ai.fr/philosophie.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Frida">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="Philosophie — Frida">
+  <meta property="og:description" content="Hypothèses de travail de Frida : dialogue, mémoire, documents, révision, statut des preuves et conséquences architecturales.">
+  <meta property="og:url" content="https://frida-ai.fr/philosophie.html">
+  <meta property="og:image" content="https://frida-ai.fr/assets/logo.png">
+  <meta property="og:image:alt" content="Logo Frida">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Philosophie — Frida">
+  <meta name="twitter:description" content="Hypothèses de travail de Frida : dialogue, mémoire, documents, révision, statut des preuves et conséquences architecturales.">
+  <meta name="twitter:image" content="https://frida-ai.fr/assets/logo.png">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "Philosophie — Frida",
+      "url": "https://frida-ai.fr/philosophie.html",
+      "inLanguage": "fr",
+      "description": "Hypothèses de travail de Frida : dialogue, mémoire, documents, révision, statut des preuves et conséquences architecturales."
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -56,8 +84,9 @@
   <p class="label">I. Point de départ</p>
   <h2 class="section-title">Ce que le projet prend pour problème</h2>
   <p>Le projet ne part pas de l'hypothèse qu'un modèle de langage comprend au sens humain du terme. Il part d'une difficulté plus restreinte&nbsp;: comment organiser techniquement un système de dialogue qui tienne un historique, traite des documents, réexamine certaines inférences et garde une trace explicite de ses opérations.</p>
-  <p>La question porte donc moins sur une attribution métaphysique de compréhension que sur la discipline d'un comportement dialogique. Cela engage le statut du contexte, de la mémoire, des résumés, des documents injectés, des signaux de jugement et des procédures de révision.</p>
-  <p>Dans Frida, ces questions sont traitées comme des questions d'architecture&nbsp;: séparation des modules, contrats de persistance, hiérarchie des matériaux textuels, conditions d'injection de la mémoire et formes d'observabilité.</p>
+  <p>Le prompt utilisateur est traité ici comme un texte. Le sens n'est pas supposé résider entièrement dans ce texte, ni entièrement dans le modèle. Il est recherché dans la rencontre entre un texte, un état de système, des matériaux mémoriels ou documentaires et une suite d'opérations de traitement.</p>
+  <p>La question porte donc moins sur une attribution métaphysique de compréhension que sur les conditions techniques sous lesquelles un événement de compréhension peut parfois avoir lieu dans un dialogue. Cela engage le statut du contexte, de la mémoire, des résumés, des documents injectés, des signaux de jugement et des procédures de révision.</p>
+  <p>Dans Frida, ces questions sont traitées comme des questions d'architecture&nbsp;: séparation des modules, contrats de persistance, hiérarchie des matériaux textuels, conditions d'injection de la mémoire, temporalité des états et formes d'observabilité.</p>
 </section>
 
 <!-- II. Critique de la plausibilité -->
@@ -91,6 +120,7 @@
   <p>Le projet distingue explicitement plusieurs types de matériaux&nbsp;: tours, traces persistées, résumés, snippets récupérés, documents injectés, sorties de validation, journaux opérateur. Ces matériaux n'ont ni le même rôle, ni le même degré de fiabilité, ni la même destination dans le pipeline.</p>
   <p>Cette distinction est nécessaire pour éviter qu'une mémoire de dialogue ne soit traitée comme une simple accumulation. Une trace n'est pas un résumé. Un résumé n'est pas une preuve. Un document injecté n'est pas un souvenir récupéré. Un journal d'exécution n'est pas un contenu de dialogue.</p>
   <p>Le problème de la continuité consiste alors à maintenir des relations explicites entre ces éléments, à en gérer la temporalité et à rendre possible la révision lorsqu'un tour ultérieur modifie l'état de la question.</p>
+  <p>Le système n'est pas seulement requis pour accumuler du passé. Il doit aussi pouvoir se situer dans le temps, conserver des différences de régime entre tours, stabiliser certains états, en laisser tomber d'autres et maintenir une identité technique mutable plutôt qu'un simple historique plat.</p>
 </section>
 
 <!-- IV. Interprétation et herméneutique -->
@@ -98,8 +128,18 @@
   <p class="label">IV. Herméneutique</p>
   <h2 class="section-title">L'interprétation comme processus situé</h2>
   <p>Le terme d'herméneutique est employé ici dans un sens opératoire. Il désigne le fait qu'un énoncé n'est pas traité indépendamment de sa position dans le dialogue, de son contexte d'énonciation et des matériaux mémoriels ou documentaires qui lui sont associés.</p>
+  <p>Le pipeline est, dans cette perspective, le lieu technique de la rencontre. C'est là que sont distribuées les opérations de mémoire, de résumé, de récupération, de validation, de régime dialogique et d'injection documentaire. Le projet ne cherche pas à attribuer une compréhension substantielle au modèle&nbsp;; il cherche à coder et à expliciter ces médiations.</p>
   <p>Dans <strong>FridaDev</strong>, cette orientation apparaît sous la forme d'une branche herméneutique explicite dans le pipeline public. Dans <strong>Frida_V4</strong>, non public à ce jour, des modules distincts travaillent des problèmes voisins, notamment le régime dialogique, l'arbitrage mémoire et le traitement des documents.</p>
   <p>Il ne s'agit pas de psychologiser le système. Il s'agit de construire des opérations situées, bornées et révisables, dont les effets puissent être décrits et discutés.</p>
+</section>
+
+<!-- VI. Évaluation -->
+<section class="section">
+  <p class="label">VI. Évaluation</p>
+  <h2 class="section-title">Lecture du dialogue et métriques auxiliaires</h2>
+  <p>Le projet ne réduit pas l'évaluation à des métriques agrégées. Certaines mesures sont utiles&nbsp;: fréquence des reformulations, suspensions, transitions de régime, retours mémoire, conflits détectés, états de validation ou persistance d'un signal sur plusieurs tours.</p>
+  <p>Cependant, ces mesures ne suffisent pas à elles seules. Le critère principal reste la lecture du dialogue lui-même, c'est-à-dire la justesse avec laquelle un enchaînement textuel est tenu, repris, corrigé ou suspendu. Autrement dit, l'évaluation garde une dimension exégétique.</p>
+  <p>Le site public n'essaie donc pas de convertir toute validité en courbes. Il décrit des modules, des hypothèses et des documents; il n'efface pas la nécessité d'une lecture située des échanges.</p>
 </section>
 
 <!-- V. Éthique de l'architecture -->

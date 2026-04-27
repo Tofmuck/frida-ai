@@ -5,6 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Architecture — Frida</title>
   <meta name="description" content="Description synthétique de l'état architectural de Frida : site public, FridaDev public, Frida_V4 non public, documents et problèmes de travail.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://frida-ai.fr/architecture.html">
+  <link rel="alternate" hreflang="fr" href="https://frida-ai.fr/architecture.html">
+  <link rel="alternate" hreflang="en" href="https://frida-ai.fr/en/architecture.html">
+  <link rel="alternate" hreflang="x-default" href="https://frida-ai.fr/architecture.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Frida">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="Architecture — Frida">
+  <meta property="og:description" content="Description synthétique de l'état architectural de Frida : site public, FridaDev public, Frida_V4 non public, documents et problèmes de travail.">
+  <meta property="og:url" content="https://frida-ai.fr/architecture.html">
+  <meta property="og:image" content="https://frida-ai.fr/assets/logo.png">
+  <meta property="og:image:alt" content="Logo Frida">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Architecture — Frida">
+  <meta name="twitter:description" content="Description synthétique de l'état architectural de Frida : site public, FridaDev public, Frida_V4 non public, documents et problèmes de travail.">
+  <meta name="twitter:image" content="https://frida-ai.fr/assets/logo.png">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Architecture — Frida",
+      "url": "https://frida-ai.fr/architecture.html",
+      "inLanguage": "fr",
+      "description": "Description synthétique de l'état architectural de Frida : site public, FridaDev public, Frida_V4 non public, documents et problèmes de travail."
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -56,6 +84,7 @@
   <p class="label">I. Principes</p>
   <h2 class="section-title">Principes structuraux</h2>
   <p>Le projet ne se présente pas sous la forme d'un système unique entièrement public. Il faut distinguer le site public, FridaDev comme dépôt applicatif public et Frida_V4 comme travail en cours non public. Les principes ci-dessous servent à maintenir la cohérence de cette description.</p>
+  <p>Cette cohérence vaut aussi pour la doctrine technique du projet&nbsp;: le pipeline y est traité comme le lieu d'une rencontre entre texte utilisateur, mémoire, documents, états intermédiaires et validation. L'architecture a pour tâche de rendre cette rencontre explicite, distribuée et révisable.</p>
 
   <table class="data-table" style="margin-top: 2rem;">
     <thead>
@@ -76,6 +105,10 @@
       <tr>
         <td><strong>Décomposition modulaire</strong></td>
         <td>Lorsque le projet décrit un runtime, il décrit des responsabilités séparées autant que possible&nbsp;: orchestration, mémoire, résumés, récupération, validation, documents, LLM, outillage local.</td>
+      </tr>
+      <tr>
+        <td><strong>Rencontre codée dans le pipeline</strong></td>
+        <td>Le prompt utilisateur est traité comme un texte, et le pipeline comme l'espace technique où s'organisent mémoire, temporalité, validation et révision.</td>
       </tr>
       <tr>
         <td><strong>Persistance et streaming décrits</strong></td>
@@ -107,7 +140,7 @@
     <div class="arch-arrow">↕</div>
     <div class="arch-layer" style="border-color: var(--accent);">
       <span class="arch-layer-title">Problèmes communs</span>
-      <span class="arch-layer-sub">dialogue · mémoire · documents · validation · observabilité</span>
+      <span class="arch-layer-sub">dialogue · mémoire · documents · validation · temporalité</span>
     </div>
     <div class="arch-arrow">↕</div>
     <div class="arch-cols">
@@ -121,7 +154,7 @@
       </div>
       <div class="arch-layer">
         <span class="arch-layer-title">Documents publics</span>
-        <span class="arch-layer-sub">audit · pipeline · contrats · papier M6</span>
+        <span class="arch-layer-sub">audit · pipeline · contrats · article M6</span>
       </div>
     </div>
   </div>
@@ -179,6 +212,7 @@
     <li>Les surfaces d'observabilité et d'administration sont décrites lorsqu'elles existent effectivement dans le dépôt public.</li>
     <li>Le site n'attribue pas au projet une unité logicielle fictive alors que ses éléments ont des statuts différents.</li>
     <li>Les affirmations fortes sur un module doivent pouvoir être rapportées à un document, un dépôt ou une évaluation disponible.</li>
+    <li>Les métriques éventuelles ne remplacent pas la lecture située du dialogue; elles l'accompagnent.</li>
   </ol>
 </section>
 
@@ -191,6 +225,7 @@
   <ul class="problems">
     <li><strong>Passage entre dépôt public et travail non public.</strong> Comment décrire les continuités entre FridaDev et Frida_V4 sans laisser entendre une disponibilité publique identique&nbsp;?</li>
     <li><strong>Évaluation de M6.</strong> Comment mesurer l'effet d'un module de régime dialogique sur la cohérence, la révision et la non-surinterprétation&nbsp;?</li>
+    <li><strong>Critère exégétique.</strong> Comment articuler une lecture qualitative du dialogue avec des métriques locales sans réduire la validité du système à une seule famille d'indicateurs&nbsp;?</li>
     <li><strong>Mémoire et documents.</strong> Comment articuler mémoire, résumés et documents injectés sans confusion de statut&nbsp;?</li>
     <li><strong>Voix, outils locaux, sécurité.</strong> Comment décrire et évaluer les capacités non publiques liées à la voix ou à l'outillage local lorsqu'elles ne sont pas encore ouvertes&nbsp;?</li>
     <li><strong>Publication.</strong> Comment rendre public un article ou un document sur un module dont le dépôt d'origine n'est pas encore ouvert&nbsp;?</li>

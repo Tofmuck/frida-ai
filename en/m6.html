@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M6 — Frida</title>
+  <meta name="description" content="Public landing page for the M6 paper: status, scope, summary, and access to the PDF.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://frida-ai.fr/en/m6.html">
+  <link rel="alternate" hreflang="fr" href="https://frida-ai.fr/m6.html">
+  <link rel="alternate" hreflang="en" href="https://frida-ai.fr/en/m6.html">
+  <link rel="alternate" hreflang="x-default" href="https://frida-ai.fr/m6.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Frida">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:title" content="M6 — Frida">
+  <meta property="og:description" content="Public landing page for the M6 paper: status, scope, summary, and access to the PDF.">
+  <meta property="og:url" content="https://frida-ai.fr/en/m6.html">
+  <meta property="og:image" content="https://frida-ai.fr/assets/logo.png">
+  <meta property="og:image:alt" content="Frida logo">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="M6 — Frida">
+  <meta name="twitter:description" content="Public landing page for the M6 paper: status, scope, summary, and access to the PDF.">
+  <meta name="twitter:image" content="https://frida-ai.fr/assets/logo.png">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ScholarlyArticle",
+      "headline": "M6: An Evidence-Bounded Dialogic Regime Controller for Memory-Augmented Conversational Retrieval",
+      "url": "https://frida-ai.fr/en/m6.html",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "description": "Public landing page for the M6 paper: status, scope, summary, and access to the PDF.",
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "https://frida-ai.fr/assets/docs/M6-paper-acm-v0.pdf",
+        "encodingFormat": "application/pdf"
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="/en/index.html" class="site-logo" aria-label="Frida — Home">
+        <img src="/assets/logo.png" alt="" class="logo-mark" aria-hidden="true">
+        <span class="logo-name">Frida</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="site-nav">
+          <li><a href="/en/index.html">Home</a></li>
+          <li><a href="/en/philosophy.html">Philosophy</a></li>
+          <li><a href="/en/architecture.html">Architecture</a></li>
+          <li><a href="/en/documents.html" class="active">Documents</a></li>
+          <li><a href="https://github.com/Tofmuck" class="nav-ext" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="/en/contact.html">Contact</a></li>
+          <li class="nav-lang"><a href="/m6.html" class="lang-other">fr</a><span class="lang-sep"> · </span><span class="lang-current">en</span></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="wrap">
+
+      <div class="page-header">
+        <p class="page-eyebrow">M6</p>
+        <h1 class="page-title">Public page for the M6 paper</h1>
+        <p class="page-desc">This page describes the public status of the M6 paper, its working scope, and its place in the project.</p>
+      </div>
+
+      <section class="section">
+        <p class="label">I. Status</p>
+        <h2 class="section-title">Documentary status</h2>
+        <p>The <code>M6</code> paper is public on this site. The module to which it refers is associated with <code>Frida_V4</code>, which is not a public repository at this time.</p>
+        <table class="data-table" style="margin-top: 2rem;">
+          <thead>
+            <tr>
+              <th>Element</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Paper title</td>
+              <td><em>M6: An Evidence-Bounded Dialogic Regime Controller for Memory-Augmented Conversational Retrieval</em></td>
+            </tr>
+            <tr>
+              <td>Format</td>
+              <td>Public PDF</td>
+            </tr>
+            <tr>
+              <td>Paper status</td>
+              <td>Public on this site</td>
+            </tr>
+            <tr>
+              <td>Module status</td>
+              <td>Ongoing work, non-public</td>
+            </tr>
+            <tr>
+              <td>Source repository</td>
+              <td><code>Frida_V4</code> — non-public</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <p class="label">II. Scope</p>
+        <h2 class="section-title">What the paper addresses</h2>
+        <p>The paper describes <code>M6</code> as a dialogic-regime module. Its problem is not to produce a style of answer, but to treat the position of a turn in the dialogue: stability, transition, validation, suspension, and the maintenance or revision of a state.</p>
+        <p>In the terms of the project, the user prompt is treated as a text. <code>M6</code> intervenes in the pipeline as a place of mediation between that text, the available memory traces, certain validation signals, and the current state of the dialogue.</p>
+        <p>The paper does not claim that a model understands in any strong sense. It describes one way of coding certain conditions of continuity, restraint, and revision in a memory-augmented dialogue system.</p>
+      </section>
+
+      <section class="section">
+        <p class="label">III. Summary</p>
+        <h2 class="section-title">Public summary</h2>
+        <p><code>M6</code> is presented as an evidence-bounded controller. It does not determine the final answer by itself. It produces a regime for reading the turn from explicit cues and constraints, then passes that regime downstream.</p>
+        <p>The paper emphasizes several properties: transition validation, inertia, limitation of overinterpretation, and fallback behaviour under uncertainty or local failure. This matters because the module is not meant to intensify interpretation arbitrarily, but to discipline it.</p>
+        <p>In that sense, <code>M6</code> matters to the project less as a mood module than as a component in the architecture of dialogic encounter: it regulates, bounds, and makes revisable part of what happens between a user text and a memory-bearing system.</p>
+      </section>
+
+      <section class="section">
+        <p class="label">IV. Access</p>
+        <h2 class="section-title">Access to the document</h2>
+        <p>The paper PDF is public. Other relevant descriptions of the project remain distributed between <code>FridaDev</code>, the <code>frida-ai</code> site, and non-public work explicitly marked as such.</p>
+        <div class="btn-row">
+          <a href="/assets/docs/M6-paper-acm-v0.pdf" class="btn btn-accent">Open the PDF</a>
+          <a href="/en/documents.html" class="btn">Back to documents</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <span class="footer-brand">Frida — frida-ai.fr</span>
+      <ul class="footer-links">
+        <li><a href="/en/philosophy.html">Philosophy</a></li>
+        <li><a href="/en/architecture.html">Architecture</a></li>
+        <li><a href="/en/documents.html">Documents</a></li>
+        <li><a href="https://github.com/Tofmuck" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="/en/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

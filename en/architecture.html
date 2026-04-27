@@ -5,6 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Architecture — Frida</title>
   <meta name="description" content="Concise description of Frida's architectural state: public site, public FridaDev repository, non-public Frida_V4 work, documents, and working problems.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://frida-ai.fr/en/architecture.html">
+  <link rel="alternate" hreflang="fr" href="https://frida-ai.fr/architecture.html">
+  <link rel="alternate" hreflang="en" href="https://frida-ai.fr/en/architecture.html">
+  <link rel="alternate" hreflang="x-default" href="https://frida-ai.fr/architecture.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Frida">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:title" content="Architecture — Frida">
+  <meta property="og:description" content="Concise description of Frida's architectural state: public site, public FridaDev repository, non-public Frida_V4 work, documents, and working problems.">
+  <meta property="og:url" content="https://frida-ai.fr/en/architecture.html">
+  <meta property="og:image" content="https://frida-ai.fr/assets/logo.png">
+  <meta property="og:image:alt" content="Frida logo">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Architecture — Frida">
+  <meta name="twitter:description" content="Concise description of Frida's architectural state: public site, public FridaDev repository, non-public Frida_V4 work, documents, and working problems.">
+  <meta name="twitter:image" content="https://frida-ai.fr/assets/logo.png">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Architecture — Frida",
+      "url": "https://frida-ai.fr/en/architecture.html",
+      "inLanguage": "en",
+      "description": "Concise description of Frida's architectural state: public site, public FridaDev repository, non-public Frida_V4 work, documents, and working problems."
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -56,6 +84,7 @@
   <p class="label">I. Principles</p>
   <h2 class="section-title">Structural principles</h2>
   <p>The project does not present itself as a single fully public system. The public site, FridaDev as a public application repository, and Frida_V4 as non-public ongoing work have to be distinguished. The principles below keep that description coherent.</p>
+  <p>This coherence also applies to the project's technical doctrine: the pipeline is treated as the place of an encounter between user text, memory, documents, intermediate states, and validation. The task of the architecture is to make that encounter explicit, distributed, and revisable.</p>
 
   <table class="data-table" style="margin-top: 2rem;">
     <thead>
@@ -76,6 +105,10 @@
       <tr>
         <td><strong>Modular decomposition</strong></td>
         <td>When the project describes a runtime, it describes separated responsibilities as far as possible: orchestration, memory, summaries, retrieval, validation, documents, LLM, local tooling.</td>
+      </tr>
+      <tr>
+        <td><strong>Encounter coded in the pipeline</strong></td>
+        <td>The user prompt is treated as a text, and the pipeline as the technical space where memory, temporality, validation, and revision are organised.</td>
       </tr>
       <tr>
         <td><strong>Persistence and streaming are described</strong></td>
@@ -107,7 +140,7 @@
     <div class="arch-arrow">↕</div>
     <div class="arch-layer" style="border-color: var(--accent);">
       <span class="arch-layer-title">Shared problems</span>
-      <span class="arch-layer-sub">dialogue · memory · documents · validation · observability</span>
+      <span class="arch-layer-sub">dialogue · memory · documents · validation · temporality</span>
     </div>
     <div class="arch-arrow">↕</div>
     <div class="arch-cols">
@@ -121,7 +154,7 @@
       </div>
       <div class="arch-layer">
         <span class="arch-layer-title">Public documents</span>
-        <span class="arch-layer-sub">audit · pipeline · contracts · M6 paper</span>
+        <span class="arch-layer-sub">audit · pipeline · contracts · M6 article</span>
       </div>
     </div>
   </div>
@@ -179,6 +212,7 @@
     <li>Observability and administration surfaces are described when they actually exist in the public repository.</li>
     <li>The site does not attribute to the project a fictional software unity when its elements have different statuses.</li>
     <li>Strong claims about a module should be traceable to an available document, repository, or evaluation.</li>
+    <li>Possible metrics do not replace a situated reading of the dialogue; they accompany it.</li>
   </ol>
 </section>
 
@@ -191,6 +225,7 @@
   <ul class="problems">
     <li><strong>Passage from public repository to non-public work.</strong> How should continuities between FridaDev and Frida_V4 be described without suggesting identical public availability?</li>
     <li><strong>Evaluation of M6.</strong> How should the effect of a dialogic regime module on coherence, revision, and non-overinterpretation be measured?</li>
+    <li><strong>Exegetical criterion.</strong> How can a qualitative reading of dialogue be articulated with local metrics without reducing system validity to a single family of indicators?</li>
     <li><strong>Memory and documents.</strong> How should memory, summaries, and injected documents be articulated without confusion of status?</li>
     <li><strong>Voice, local tools, security.</strong> How should non-public capabilities related to voice or local tooling be described and evaluated before they are opened?</li>
     <li><strong>Publication.</strong> How can a paper or document be made public about a module whose source repository is not yet open?</li>
