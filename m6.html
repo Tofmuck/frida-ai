@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>M6 — Frida</title>
-  <meta name="description" content="Page publique du papier M6 : statut, objet, résumé et accès au PDF.">
+  <meta name="description" content="Page publique du papier M6 : abstract, mots-clés, statut documentaire et accès au PDF d'un module de régime dialogique pour systèmes de dialogue avec mémoire.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://frida-ai.fr/m6.html">
   <link rel="alternate" hreflang="fr" href="https://frida-ai.fr/m6.html">
@@ -15,13 +15,13 @@
   <meta property="og:locale" content="fr_FR">
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:title" content="M6 — Frida">
-  <meta property="og:description" content="Page publique du papier M6 : statut, objet, résumé et accès au PDF.">
+  <meta property="og:description" content="Page publique du papier M6 : abstract, mots-clés, statut documentaire et accès au PDF d'un module de régime dialogique pour systèmes de dialogue avec mémoire.">
   <meta property="og:url" content="https://frida-ai.fr/m6.html">
   <meta property="og:image" content="https://frida-ai.fr/assets/logo.png">
   <meta property="og:image:alt" content="Logo Frida">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="M6 — Frida">
-  <meta name="twitter:description" content="Page publique du papier M6 : statut, objet, résumé et accès au PDF.">
+  <meta name="twitter:description" content="Page publique du papier M6 : abstract, mots-clés, statut documentaire et accès au PDF d'un module de régime dialogique pour systèmes de dialogue avec mémoire.">
   <meta name="twitter:image" content="https://frida-ai.fr/assets/logo.png">
   <script type="application/ld+json">
     {
@@ -31,7 +31,15 @@
       "url": "https://frida-ai.fr/m6.html",
       "inLanguage": "fr",
       "isAccessibleForFree": true,
-      "description": "Page publique du papier M6 : statut, objet, résumé et accès au PDF.",
+      "description": "Page publique du papier M6 : abstract, mots-clés, statut documentaire et accès au PDF d'un module de régime dialogique pour systèmes de dialogue avec mémoire.",
+      "keywords": [
+        "regime dialogique",
+        "dialogue systems with memory",
+        "memory-augmented conversational retrieval",
+        "validation and revision",
+        "evidence-bounded controller",
+        "hermeneutic pipeline"
+      ],
       "encoding": {
         "@type": "MediaObject",
         "contentUrl": "https://frida-ai.fr/assets/docs/M6-paper-acm-v0.pdf",
@@ -113,23 +121,34 @@
       </section>
 
       <section class="section">
-        <p class="label">II. Objet</p>
-        <h2 class="section-title">Ce que traite le papier</h2>
-        <p>Le papier décrit <code>M6</code> comme un module de régime dialogique. Son problème n'est pas de produire un style de réponse, mais de traiter la position d'un tour dans le dialogue&nbsp;: stabilité, transition, validation, suspension, maintien ou révision d'un état.</p>
+        <p class="label">II. Abstract</p>
+        <h2 class="section-title">Résumé du papier</h2>
+        <p>Ce papier présente <code>M6</code> comme un module de régime dialogique destiné à des systèmes de dialogue avec mémoire. Son objet n'est pas d'améliorer stylistiquement une réponse, mais de régler la position d'un tour dans le dialogue&nbsp;: transition, stabilité, validation, suspension et révision d'un état courant. Le module est décrit comme un contrôleur borné par preuves, inséré dans un pipeline où le prompt utilisateur est traité comme un texte et où les opérations de mémoire, de validation et d'arbitrage restent distinctes. Dans ce cadre, <code>M6</code> produit un régime de lecture du tour et transmet ce régime vers l'aval sans décider seul de la réponse finale. Le papier ne soutient pas qu'un modèle comprend au sens fort&nbsp;; il décrit une manière de coder certaines conditions de continuité, de retenue et de révision dans un système de dialogue augmenté par mémoire.</p>
+      </section>
+
+      <section class="section">
+        <p class="label">III. Keywords</p>
+        <h2 class="section-title">Mots-clés</h2>
+        <p><code>dialogic regime</code> · <code>dialogue systems with memory</code> · <code>memory-augmented conversational retrieval</code> · <code>validation and revision</code> · <code>evidence-bounded controller</code> · <code>hermeneutic pipeline</code></p>
+      </section>
+
+      <section class="section">
+        <p class="label">IV. Problème</p>
+        <h2 class="section-title">Ce que traite M6</h2>
+        <p>Le problème principal de <code>M6</code> est la détermination d'un régime de tour dans un dialogue à plusieurs étapes. Il s'agit de savoir, pour un tour donné, si le système doit maintenir un état, en valider la transition, le suspendre, le reformuler ou le réviser.</p>
         <p>Dans les termes du projet, le prompt utilisateur est traité comme un texte. <code>M6</code> intervient dans le pipeline comme un lieu de médiation entre ce texte, les traces de mémoire disponibles, certains signaux de validation et l'état courant du dialogue.</p>
-        <p>Le papier ne soutient pas qu'un modèle comprend au sens fort. Il décrit une manière de coder certaines conditions de continuité, de retenue et de révision dans un système de dialogue augmenté par mémoire.</p>
+        <p>Le papier insiste sur plusieurs propriétés&nbsp;: validation des transitions, inertie, limitation de la surinterprétation et comportement de repli en cas d'incertitude ou d'échec local.</p>
       </section>
 
       <section class="section">
-        <p class="label">III. Résumé</p>
-        <h2 class="section-title">Résumé public</h2>
-        <p><code>M6</code> est présenté comme un contrôleur borné par preuves. Il ne décide pas seul de la réponse finale. Il produit un régime de lecture du tour, à partir d'indices et de contraintes explicites, puis transmet ce régime vers l'aval.</p>
-        <p>Le papier insiste sur plusieurs propriétés&nbsp;: validation des transitions, inertie, limitation de la surinterprétation, et comportement de repli en cas d'incertitude ou d'échec local. Ce point est important, car le module n'est pas conçu pour intensifier arbitrairement l'interprétation, mais pour la discipliner.</p>
-        <p>En ce sens, <code>M6</code> intéresse le projet moins comme un module d'« humeur » que comme une pièce de l'architecture de la rencontre dialogique&nbsp;: il règle, borne et rend révisable une partie de ce qui se passe entre un texte utilisateur et un système à mémoire.</p>
+        <p class="label">V. Limites</p>
+        <h2 class="section-title">Ce que M6 ne fait pas</h2>
+        <p><code>M6</code> n'est pas présenté comme un moteur d'émotion, ni comme une théorie complète de la compréhension, ni comme un module qui déciderait seul de la réponse finale. Il ne remplace ni la mémoire, ni les documents, ni les opérations de validation en aval.</p>
+        <p>Son rôle est plus limité&nbsp;: produire un régime de lecture du tour à partir d'indices et de contraintes explicites, puis transmettre ce régime vers le reste du pipeline. En ce sens, il intéresse le projet moins comme un module d'« humeur » que comme une pièce de l'architecture de la rencontre dialogique.</p>
       </section>
 
       <section class="section">
-        <p class="label">IV. Accès</p>
+        <p class="label">VI. Accès</p>
         <h2 class="section-title">Accès au document</h2>
         <p>Le PDF du papier est public. Les autres descriptions pertinentes du projet restent réparties entre <code>FridaDev</code>, le site <code>frida-ai</code> et des travaux non publics explicitement signalés comme tels.</p>
         <div class="btn-row">

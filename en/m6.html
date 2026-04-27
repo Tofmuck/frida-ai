@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>M6 — Frida</title>
-  <meta name="description" content="Public landing page for the M6 paper: status, scope, summary, and access to the PDF.">
+  <meta name="description" content="Public landing page for the M6 paper: abstract, keywords, documentary status, and access to the PDF of a dialogic-regime module for dialogue systems with memory.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://frida-ai.fr/en/m6.html">
   <link rel="alternate" hreflang="fr" href="https://frida-ai.fr/m6.html">
@@ -15,13 +15,13 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:title" content="M6 — Frida">
-  <meta property="og:description" content="Public landing page for the M6 paper: status, scope, summary, and access to the PDF.">
+  <meta property="og:description" content="Public landing page for the M6 paper: abstract, keywords, documentary status, and access to the PDF of a dialogic-regime module for dialogue systems with memory.">
   <meta property="og:url" content="https://frida-ai.fr/en/m6.html">
   <meta property="og:image" content="https://frida-ai.fr/assets/logo.png">
   <meta property="og:image:alt" content="Frida logo">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="M6 — Frida">
-  <meta name="twitter:description" content="Public landing page for the M6 paper: status, scope, summary, and access to the PDF.">
+  <meta name="twitter:description" content="Public landing page for the M6 paper: abstract, keywords, documentary status, and access to the PDF of a dialogic-regime module for dialogue systems with memory.">
   <meta name="twitter:image" content="https://frida-ai.fr/assets/logo.png">
   <script type="application/ld+json">
     {
@@ -31,7 +31,15 @@
       "url": "https://frida-ai.fr/en/m6.html",
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "description": "Public landing page for the M6 paper: status, scope, summary, and access to the PDF.",
+      "description": "Public landing page for the M6 paper: abstract, keywords, documentary status, and access to the PDF of a dialogic-regime module for dialogue systems with memory.",
+      "keywords": [
+        "dialogic regime",
+        "dialogue systems with memory",
+        "memory-augmented conversational retrieval",
+        "validation and revision",
+        "evidence-bounded controller",
+        "hermeneutic pipeline"
+      ],
       "encoding": {
         "@type": "MediaObject",
         "contentUrl": "https://frida-ai.fr/assets/docs/M6-paper-acm-v0.pdf",
@@ -113,23 +121,34 @@
       </section>
 
       <section class="section">
-        <p class="label">II. Scope</p>
-        <h2 class="section-title">What the paper addresses</h2>
-        <p>The paper describes <code>M6</code> as a dialogic-regime module. Its problem is not to produce a style of answer, but to treat the position of a turn in the dialogue: stability, transition, validation, suspension, and the maintenance or revision of a state.</p>
+        <p class="label">II. Abstract</p>
+        <h2 class="section-title">Paper abstract</h2>
+        <p>This paper presents <code>M6</code> as a dialogic-regime module for dialogue systems with memory. Its object is not to stylistically improve an answer, but to regulate the position of a turn in dialogue: transition, stability, validation, suspension, and revision of a current state. The module is described as an evidence-bounded controller inserted into a pipeline where the user prompt is treated as a text and where memory, validation, and arbitration operations remain distinct. Within that frame, <code>M6</code> produces a regime for reading the turn and passes that regime downstream without determining the final answer by itself. The paper does not claim that a model understands in any strong sense; it describes one way of coding certain conditions of continuity, restraint, and revision in a memory-augmented dialogue system.</p>
+      </section>
+
+      <section class="section">
+        <p class="label">III. Keywords</p>
+        <h2 class="section-title">Keywords</h2>
+        <p><code>dialogic regime</code> · <code>dialogue systems with memory</code> · <code>memory-augmented conversational retrieval</code> · <code>validation and revision</code> · <code>evidence-bounded controller</code> · <code>hermeneutic pipeline</code></p>
+      </section>
+
+      <section class="section">
+        <p class="label">IV. Problem</p>
+        <h2 class="section-title">What M6 addresses</h2>
+        <p>The main problem of <code>M6</code> is the determination of a turn regime in a multi-step dialogue. For a given turn, the system has to know whether it should maintain a state, validate a transition, suspend that state, reformulate it, or revise it.</p>
         <p>In the terms of the project, the user prompt is treated as a text. <code>M6</code> intervenes in the pipeline as a place of mediation between that text, the available memory traces, certain validation signals, and the current state of the dialogue.</p>
-        <p>The paper does not claim that a model understands in any strong sense. It describes one way of coding certain conditions of continuity, restraint, and revision in a memory-augmented dialogue system.</p>
+        <p>The paper emphasizes several properties: transition validation, inertia, limitation of overinterpretation, and fallback behaviour under uncertainty or local failure.</p>
       </section>
 
       <section class="section">
-        <p class="label">III. Summary</p>
-        <h2 class="section-title">Public summary</h2>
-        <p><code>M6</code> is presented as an evidence-bounded controller. It does not determine the final answer by itself. It produces a regime for reading the turn from explicit cues and constraints, then passes that regime downstream.</p>
-        <p>The paper emphasizes several properties: transition validation, inertia, limitation of overinterpretation, and fallback behaviour under uncertainty or local failure. This matters because the module is not meant to intensify interpretation arbitrarily, but to discipline it.</p>
-        <p>In that sense, <code>M6</code> matters to the project less as a mood module than as a component in the architecture of dialogic encounter: it regulates, bounds, and makes revisable part of what happens between a user text and a memory-bearing system.</p>
+        <p class="label">V. Limits</p>
+        <h2 class="section-title">What M6 does not do</h2>
+        <p><code>M6</code> is not presented as an emotion engine, nor as a complete theory of understanding, nor as a module that determines the final answer on its own. It does not replace memory, documents, or downstream validation operations.</p>
+        <p>Its role is narrower: to produce a regime for reading the turn from explicit cues and constraints, then pass that regime into the rest of the pipeline. In that sense, it matters to the project less as a mood module than as a component in the architecture of dialogic encounter.</p>
       </section>
 
       <section class="section">
-        <p class="label">IV. Access</p>
+        <p class="label">VI. Access</p>
         <h2 class="section-title">Access to the document</h2>
         <p>The paper PDF is public. Other relevant descriptions of the project remain distributed between <code>FridaDev</code>, the <code>frida-ai</code> site, and non-public work explicitly marked as such.</p>
         <div class="btn-row">
